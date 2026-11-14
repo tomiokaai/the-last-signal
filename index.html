@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The Last Signal — So‘nggi signal</title><style data-section-id="01a1ca2d-132a-77cc-b50d-94feec5ec3c3">
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Literata:wght@400;500&display=swap');
+:root{--paper:#e3e1d2;--muted:#a8b4a4;--acid:#d1d89c;--red:#e6a086;--ink:#0c1719}*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;overflow:hidden}button,input{font:inherit}button{color:inherit;cursor:pointer;border:1px solid #697960;background:#1a2a25;padding:12px 17px;transition:background .2s,border-color .2s;line-height:1.5}button:hover,button:focus-visible{background:#35473b;border-color:var(--acid);outline:2px solid #d1d89c55;outline-offset:2px}button:disabled{opacity:.5;cursor:not-allowed}button.primary{background:var(--acid);color:#18221c;border-color:var(--acid)}button.primary:hover{background:#edf0c4}button.danger{border-color:var(--red);color:var(--red)}#world{position:fixed;inset:0;width:100%;height:100%;image-rendering:pixelated;touch-action:none}#grain{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,#00000012 3px,#00000012 4px);box-shadow:inset 0 0 140px 35px #07101180}.top{position:fixed;left:28px;right:28px;top:20px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:10px;letter-spacing:1.5px;pointer-events:none}.top button{padding:7px 10px;font-size:10px;pointer-events:auto}.tools{display:flex;gap:8px;align-items:center}.live{color:var(--acid)}.live:before{content:'';display:inline-block;width:5px;height:5px;background:currentColor;margin-right:7px}.screen{position:fixed;inset:0;display:flex;align-items:center;padding:7vw;background:linear-gradient(90deg,#091112e8,#09111280 55%,#09111212)}.hidden{display:none!important}.intro{max-width:650px}.eyebrow{font-size:10px;line-height:1.7;letter-spacing:2px;color:var(--acid);margin-bottom:20px}h1,h2{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0;line-height:.9}h1{font-size:clamp(68px,10vw,142px)}h1 span{color:#a8b79a}p{line-height:1.9;color:#c4ccbe}.intro p{font-size:13px;max-width:465px;margin:25px 0}.actions{display:flex;flex-wrap:wrap;gap:9px}.small{font-size:10px;color:var(--muted);line-height:1.9}.intro .small{margin-top:20px;max-width:490px}.edition{position:absolute;bottom:22px;left:28px;right:28px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;color:#a9b59f}.corner{position:absolute;right:7vw;bottom:18%;text-align:right;border-right:2px solid var(--acid);padding-right:18px;max-width:225px}.corner strong{font-size:13px}.corner p{font-size:11px;margin:8px 0}#hud{position:fixed;inset:0;pointer-events:none}#objective{position:absolute;top:85px;left:28px;border-left:2px solid var(--acid);padding:4px 12px;text-shadow:0 2px 4px #000}#chapter{font-size:9px;letter-spacing:1px;display:block;color:var(--acid);margin-bottom:8px}#task{font-size:12px;max-width:300px;line-height:1.7}#distance{font-size:10px;color:#c8d2bc;margin-top:6px}#cross{position:absolute;top:50%;left:50%;width:4px;height:4px;border:1px solid #e5e5c4;border-radius:50%}#prompt{pointer-events:auto;position:absolute;left:50%;top:58%;transform:translateX(-50%);font-size:11px;max-width:88%;background:#10201deb}kbd{font:inherit;border:1px solid #8d9a75;padding:2px 5px;color:var(--acid);margin-right:6px}#map{position:absolute;right:25px;top:85px;width:128px;height:190px;background:#0a1714df;border:1px solid #718066}#subtitle{position:absolute;left:50%;bottom:102px;transform:translateX(-50%);width:min(690px,88%);background:#091714e8;border-bottom:1px solid #899a70;padding:12px 18px;font-size:12px;line-height:1.8;text-align:center}#bottom{position:absolute;bottom:22px;left:28px;right:28px;display:flex;justify-content:space-between;gap:15px;font-size:9px;color:#c3cbb7;line-height:1.8;text-shadow:0 2px 3px #000}#inventory{text-align:right}#pressure{position:absolute;left:50%;top:24px;transform:translateX(-50%);font-size:10px;color:#f0b7a0;background:#2d1616c9;padding:8px 12px}#quick{position:absolute;right:25px;bottom:74px;display:flex;gap:6px;pointer-events:auto}#quick button{padding:8px;font-size:10px;background:#10201edb}.modal{position:fixed;inset:0;background:#051010c9;display:grid;place-items:center;padding:22px;backdrop-filter:blur(4px)}.panel{width:min(760px,100%);max-height:92dvh;overflow:auto;padding:32px 38px;background:#14221f;border:1px solid #778266;box-shadow:0 25px 100px #0009}.panel h2{font-size:clamp(34px,5vw,55px);line-height:1}.panel p{white-space:pre-line;font-size:14px;line-height:1.95;margin:23px 0}.panel .eyebrow{margin-bottom:12px}.panel .actions{margin-top:22px;padding-top:18px;border-top:1px solid #3a4d3c}.panel .actions button{font-size:12px}#journalText{white-space:pre-line;font-size:13px;line-height:1.95;max-height:45dvh;overflow:auto;color:#d0d9c8}#reading{font-size:10px;color:#a9b999;margin-top:14px}.puzzle{border:1px solid #4e634c;background:#0c1917;padding:20px;margin-top:15px}.puzzle label{display:block;font-size:12px;line-height:1.8;margin-bottom:10px}.puzzle input[type=range]{width:100%;accent-color:var(--acid)}.puzzle input[type=text]{background:#172d26;color:var(--paper);border:1px solid #85916f;padding:12px;width:100%;max-width:320px;text-transform:uppercase;font-size:18px}.puzzle output{display:block;color:var(--acid);font-size:25px;margin:10px 0}.puzzle .bank{display:flex;gap:8px;flex-wrap:wrap}.puzzle button{font-size:12px}.feedback{font-size:12px;color:#efb392;min-height:28px;line-height:1.8;margin-top:15px}.hint{font-size:12px;color:var(--acid);line-height:1.8;white-space:pre-line}.touch{position:fixed;bottom:65px;display:none;gap:5px;touch-action:none;user-select:none}.touch button{width:44px;height:44px;padding:0;background:#13251ee8}.pad{left:15px;grid-template-columns:repeat(3,44px)}.look{right:15px;grid-template-columns:repeat(2,44px)}#interactTouch{grid-column:span 2;width:93px;font-size:10px;color:var(--acid)}.journalNav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.journalNav button{font-size:11px;padding:7px 10px}.memory{color:var(--red)}@media(pointer:coarse){.touch{display:grid}#subtitle{bottom:185px}#quick{bottom:174px}#bottom{font-size:8px;bottom:12px}#bottom .desktop{display:none}#task{max-width:210px}#map{width:84px;height:125px;top:155px;right:15px}.top{left:16px;right:16px}#objective{left:15px;top:76px}}@media(max-width:650px){.screen{padding:26px}.corner{display:none}.edition{left:25px;right:25px;font-size:8px}.edition span:last-child{display:none}.intro p{font-size:12px}.intro .small{font-size:9px}.top .brand{font-size:8px;max-width:145px;line-height:1.5}.live{display:none}.panel{padding:24px 21px;max-height:94dvh}.modal{padding:12px}.panel p{font-size:13px;line-height:1.9}.panel .actions button{padding:10px 12px;font-size:11px}#pressure{top:auto;bottom:242px;width:max-content;max-width:90%;text-align:center}#bottom{left:16px;right:16px}.puzzle{padding:14px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.top{z-index:4;color:#dce2cf}.modal{z-index:10}.edition{color:#c9d1bb}.intro .small{color:#c0cbb4}.corner p{color:#d0d7c3}
+/* Salt air, oxidised copper, old radio equipment, and a family notebook. */
+:root{--paper:#e7dfcd;--muted:#a8b4ad;--acid:#d9b77c;--red:#dfa58b;--ink:#0b1519;--line:#a9b9b02e;--copper:#b88b65}
+body{background:var(--ink)}button{border-color:#93a99a50;background:#122128e8;border-radius:1px;font-size:11px;letter-spacing:.65px;min-height:42px;padding:11px 16px;box-shadow:inset 0 1px #ffffff06;transition:background .2s,border-color .2s,color .2s}button:hover,button:focus-visible{background:#24353a;border-color:var(--acid);outline-color:#d9b77c55}button.primary{background:#dac08d;color:#172124;border-color:#dac08d;box-shadow:inset 0 0 0 3px #17212414}button.primary:hover{background:#eddbb4}button.danger{color:var(--red)}
+#grain{z-index:3;opacity:.6;background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,#05101424 3px,#05101424 4px);box-shadow:inset 0 0 100px 20px #030a104a}#title{overflow-y:auto;overflow-x:hidden;padding:95px 7vw 82px;background:linear-gradient(90deg,#081116f5 0%,#0b171de8 32%,#0b171d99 58%,#0b171d0a 100%)}#title:before{content:'';position:absolute;left:calc(7vw - 24px);top:115px;bottom:112px;width:1px;background:linear-gradient(transparent,#c4a77766,transparent)}.intro{position:relative;max-width:690px;z-index:1}.eyebrow{color:var(--acid);font-size:9px;letter-spacing:2.4px;margin-bottom:24px}.intro .eyebrow:before{content:'●';font-size:7px;margin-right:11px;color:#d7a97d}h1{font-size:clamp(76px,10.2vw,154px);letter-spacing:-1.5px;line-height:.82;font-weight:600;text-shadow:2px 3px 0 #090e12,0 10px 40px #071013}h1 span{color:#c6c9bc;letter-spacing:5px}h1:after{content:'09 / ALOQA UZILMAGAN';display:block;font:9px 'IBM Plex Mono',monospace;letter-spacing:4px;color:#b5a38a;margin:24px 0 0 3px}.intro p{font-family:'Literata',Georgia,serif;font-size:15px;line-height:1.95;color:#d5d8cd;margin:25px 0 28px;max-width:470px}.intro .actions{gap:10px}.intro .actions button{padding:14px 20px}.intro .small{margin-top:24px;font-size:9px;line-height:1.95;color:#aab8b3;border-top:1px solid var(--line);padding-top:16px;max-width:465px}.corner{right:6vw;bottom:17%;border-right:1px solid #c9a578;padding:14px 20px 14px 0;max-width:238px;background:linear-gradient(270deg,#081117b0,transparent)}.corner strong{font-family:'Barlow Condensed',sans-serif;font-size:56px;letter-spacing:5px;font-weight:500;color:#ddc49b}.corner p:first-of-type{font-size:9px;letter-spacing:2px;color:#b6c4bb}.corner p:last-child{font-family:'Literata',Georgia,serif;font-size:12px;font-style:italic;line-height:1.9;color:#cdd1c3}.edition{position:fixed;bottom:22px;left:28px;right:28px;padding-top:13px;border-top:1px solid var(--line);font-size:8px;color:#b9c4bb;z-index:1;gap:16px}.top{top:18px;letter-spacing:2px;align-items:flex-start}.brand{border-left:2px solid var(--copper);padding:9px 12px;background:#0a151bbb;font-size:9px}.tools{padding:2px;background:#09131985}.top button{border-color:#9aada047;min-height:34px;font-size:9px}.live{padding:0 8px;color:#a8bbaa;font-size:9px}.live:before{border-radius:50%;box-shadow:0 0 8px #b5d6a044}
+#objective{top:90px;left:28px;padding:10px 15px 11px;border-left:2px solid #caad7e;background:linear-gradient(90deg,#09151de8,#09151d80,transparent);max-width:350px}#chapter{font-size:9px;letter-spacing:1.5px;color:#d9be90;margin-bottom:9px}#task{font-size:12px;color:#e1e4d7;line-height:1.75}#distance{color:#a8bab7;font-size:9px;letter-spacing:1px;margin-top:9px}#map{background:#0d1e22e8;border-color:#b1bbaa55;box-shadow:0 3px 24px #02090b66,inset 0 0 20px #071215;padding:3px}#cross{width:3px;height:3px;background:#e8e1cf99;border:none;box-shadow:0 0 0 3px #09171b33}#prompt{background:#102028f2;border-color:#bc9d6e99;border-top:2px solid var(--acid);font-size:11px;padding:12px 18px;box-shadow:0 5px 24px #02090b66}#subtitle{font-family:'Literata',Georgia,serif;font-size:15px;line-height:1.75;background:#0a171df0;border:1px solid #a7b9aa28;border-bottom:2px solid #b39268;box-shadow:0 8px 40px #02070a66;padding:16px 24px;color:#e6e2d5;width:min(720px,88%)}#subtitle:before{content:'RADIO / 86.4';display:block;font:8px 'IBM Plex Mono',monospace;letter-spacing:3px;color:#c5a879;margin-bottom:7px}#bottom{color:#b7c4bd;font-size:8px;letter-spacing:.6px}#inventory{border-right:1px solid #bb9e76;padding-right:12px;color:#d9c8a7}#quick button{background:#0b1a22e8;border-color:#8ea49855;color:#d4d9c9;font-size:9px}#pressure{background:#301f1af2;border:1px solid #d4a48380;color:#f0c4a0;font-size:10px;max-width:90%;line-height:1.7}.touch button{background:#10232bea;border-color:#a2b1a470;color:#d7c7a5}
+.modal{background:#030c12b5;backdrop-filter:blur(5px);padding:42px 22px}.panel{position:relative;width:min(790px,100%);max-height:88dvh;padding:34px 42px 30px;background:linear-gradient(130deg,#192b31,#101e25 80%);border:1px solid #879d9259;border-top:3px solid #b5966c;box-shadow:0 30px 100px #02070ac9,inset 0 0 80px #07111944;scrollbar-width:thin;scrollbar-color:#718276 #15252b}.panel .eyebrow{color:#d2b27e;font-size:9px;letter-spacing:2px}.panel h2{font-size:clamp(32px,4.5vw,51px);line-height:1.05;letter-spacing:.5px;max-width:660px;color:#e6dfcc;text-wrap:balance}.panel p{font-family:'Literata',Georgia,serif;font-size:15px;line-height:2;color:#d7ddd1;margin:25px 0}.panel .actions{border-top-color:#94a39335;gap:9px;margin-top:24px;padding-top:19px}.panel .actions button{font-size:11px;line-height:1.65;flex:0 1 auto;text-align:left}#reading{color:#a9b7ad;font-size:9px;letter-spacing:1px;padding-top:6px}.puzzle{background:#081820;border-color:#9aa58a55;border-top:1px solid #b29970;padding:22px}.puzzle label{color:#d8ddcf}.puzzle input[type=text]{background:#152a30;border-color:#92a68d;color:#f0debc;letter-spacing:3px;border-radius:0}.puzzle input[type=range]{accent-color:#d9b77c}.puzzle output{font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:36px}.hint{color:#d5bc8d;font-size:12px}.feedback{color:#edb699}#journalText{font-family:'Literata',Georgia,serif;line-height:2.1;font-size:15px;color:#d6dccf;padding:4px 14px 8px 0;scrollbar-width:thin;scrollbar-color:#9f8d6d #192b31}.journalNav select{background:#142830!important;color:#e7dfcd!important;border-color:#a4af9355!important}.journalNav button{background:#112129;color:#cfb88e}.memory{color:#dfa58b}
+body[data-view=story] .panel,body[data-view=ending] .panel{background:linear-gradient(125deg,#29302d,#17282c 80%);border-top-color:#ccb184}body[data-view=story] .panel p,body[data-view=ending] .panel p{color:#e1dfd0}body[data-view=final] .panel{border-top-color:#d8b781;background:linear-gradient(150deg,#31342c,#10222a 75%)}body[data-view=journal] .panel{background:repeating-linear-gradient(0deg,transparent,transparent 31px,#b8ae8a07 31px,#b8ae8a07 32px),linear-gradient(125deg,#31362e,#192b2b)}body[data-view=pause] .modal{background:#071319bf}
+@media(min-width:1100px){.panel{padding:38px 50px}.panel p{font-size:16px}.intro{max-width:670px}}
+@media(max-width:800px){.corner{display:none}#title{background:linear-gradient(90deg,#081116f5,#0b171dbb 65%,#0b171d55)}.intro{max-width:100%}}
+@media(max-width:650px){#title{padding:90px 25px 80px;align-items:center}.intro .eyebrow{font-size:8px;letter-spacing:1.5px;margin-bottom:20px}h1{font-size:clamp(66px,15vw,98px)}h1 span{letter-spacing:2px}h1:after{font-size:8px;letter-spacing:2.5px;margin-top:19px}.intro p{font-size:13px;margin:22px 0}.intro .actions button{font-size:10px;padding:11px 14px}.intro .small{font-size:8px;line-height:1.9;margin-top:19px;padding-top:12px}.edition{left:25px;right:25px;bottom:14px;font-size:7px}.top{top:12px}.brand{padding:7px 8px!important;font-size:7px!important;letter-spacing:1px;max-width:140px!important}.top button{padding:7px;min-height:32px;font-size:8px}.tools{gap:4px}.modal{padding:12px}.panel{padding:25px 23px 22px;max-height:92dvh}.panel p{font-size:14px;line-height:1.95;margin:21px 0}.panel h2{font-size:35px}.panel .actions button{font-size:11px}.panel .eyebrow{font-size:8px;letter-spacing:1.3px}.panel .actions{margin-top:18px}.puzzle{padding:16px}#journalText{font-size:14px}#objective{max-width:230px;padding:7px 11px}#chapter{font-size:8px}#task{font-size:11px}#subtitle{font-size:13px;padding:12px 17px}#bottom{font-size:7px;letter-spacing:0}#quick{gap:4px}#quick button{font-size:8px;padding:8px 7px}#pressure{font-size:9px}}
+@media(max-height:650px){#title{align-items:flex-start;padding-top:85px;padding-bottom:65px}.intro h1{font-size:clamp(55px,9vh,83px)}.intro p{margin:16px 0;font-size:12px}.intro .small{margin-top:15px}.edition{position:absolute;bottom:12px}.corner{display:none}.panel{max-height:94dvh}.modal{padding:12px}#map{height:130px;width:88px}#objective{top:72px}#bottom{bottom:10px}.intro .eyebrow{margin-bottom:16px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+/* Weathered station directory / main menu. */
+#title{align-items:flex-start;padding-top:100px;padding-bottom:95px}#title .intro{max-width:1020px;width:100%;display:grid;grid-template-columns:minmax(290px,1fr) minmax(290px,390px);column-gap:65px;align-items:start}#title .intro>.eyebrow{grid-column:1/-1}#title h1{font-size:clamp(76px,9vw,130px);grid-column:1;grid-row:2}#title .intro>p{grid-column:1;grid-row:3;font-size:14px}#title .intro>.small{grid-column:1;grid-row:4;margin-top:0}#title .main-menu{grid-column:2;grid-row:2/5;display:flex;flex-direction:column;gap:0;border-top:1px solid #c6aa7870;border-bottom:1px solid #c6aa7870;background:linear-gradient(90deg,#0a171deb,#0a171d60);padding:14px 0;align-self:start;margin-top:8px}.menu-caption{font-size:8px;letter-spacing:2.8px;color:#bba781;padding:6px 20px 17px;display:flex;justify-content:space-between}.menu-caption span:last-child{color:#99b2a5}.main-menu button{position:relative;display:flex;align-items:center;gap:17px;width:100%;min-height:65px;text-align:left;border:0;border-bottom:1px solid #9bab9f1f;border-radius:0;background:transparent!important;color:#dedbca!important;box-shadow:none!important;padding:13px 20px!important;outline-offset:-3px}.main-menu button:last-of-type{border-bottom:0}.main-menu button .menu-index{font-size:9px;color:#9d9f8d;min-width:20px}.menu-label{display:flex;flex:1;flex-direction:column;gap:3px;font-family:'Barlow Condensed',sans-serif;font-size:24px;letter-spacing:1.2px;line-height:1.1}.menu-label small{font:8px 'IBM Plex Mono',monospace;color:#9fafaa;letter-spacing:.4px;line-height:1.7}.menu-arrow{font-size:18px;color:#b79e74;transition:transform .2s}.main-menu button.primary{border-left:3px solid #d9b77c;background:linear-gradient(90deg,#ad875b26,transparent)!important}.main-menu button.primary .menu-label{color:#edcf99}.main-menu button:hover,.main-menu button:focus-visible{background:#c9ac7720!important}.main-menu button:hover .menu-arrow{transform:translateX(4px)}.main-menu button:disabled{opacity:.38}.menu-note{font-size:8px;line-height:1.8;letter-spacing:.4px;color:#9cab9e;padding:15px 20px 4px}.corner{bottom:8%;max-width:230px}.corner strong{font-size:36px}.corner p:last-child{font-size:11px}.setting-note{font:11px 'IBM Plex Mono',monospace;color:#b8c7bd;border-left:2px solid #bd9c69;padding:12px 16px;line-height:1.9;background:#091820}
+@media(max-width:1000px){#title .intro{column-gap:30px;grid-template-columns:minmax(240px,1fr) minmax(260px,340px)}#title h1{font-size:90px}.corner{display:none}}
+@media(max-width:700px){#title{padding:86px 24px 65px;display:block}#title .intro{display:flex;flex-direction:column;gap:0}#title h1{font-size:76px}#title .intro>.eyebrow{font-size:7px;margin-bottom:20px}#title .intro>p{font-size:12px;margin:22px 0}#title .main-menu{width:100%;max-width:440px;margin:0 0 22px;padding:9px 0}.main-menu button{min-height:58px;padding:10px 16px!important}.menu-label{font-size:23px}.menu-label small{font-size:8px}#title .intro>.small{font-size:8px}.menu-caption{padding:6px 16px 12px}.menu-note{padding:12px 16px 4px}.edition{position:relative;left:auto;right:auto;bottom:auto;margin-top:28px}}
+@media(max-height:650px) and (min-width:701px){#title{padding-top:80px}#title h1{font-size:78px}.main-menu button{min-height:53px;padding:9px 16px!important}.menu-label{font-size:22px}#title .intro>p{font-size:12px}.menu-note{padding-top:9px}.menu-caption{padding-bottom:9px}.edition{position:relative;left:auto;right:auto;margin-top:24px}#title{flex-wrap:wrap}}
+#title .main-menu{animation:menuArrive .65s cubic-bezier(.2,.75,.2,1) both}.main-menu button{transition:background .2s,border-color .2s,transform .2s}.main-menu button:hover{transform:translateX(4px)}@keyframes menuArrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}#compass{position:absolute;right:27px;top:82px;width:66px;height:66px;border:1px solid #bdab846e;border-radius:50%;background:#08151ad9;box-shadow:0 5px 22px #02080a66;display:grid;place-items:center;color:#d9cda9}#compass:before{content:'';position:absolute;inset:6px;border:1px solid #b8c4ae35;border-radius:50%}#compass .north{position:absolute;top:5px;font-size:8px;color:var(--acid)}#compassNeedle{position:absolute;width:2px;height:25px;background:linear-gradient(#d9b77c 0 48%,#7d9994 52%);transform-origin:50% 50%;transition:transform .12s linear;filter:drop-shadow(0 0 3px #d9b77c66)}#headingLabel{position:absolute;bottom:7px;font-size:7px;letter-spacing:.5px;color:#b6c1b2}#battery{position:absolute;right:27px;top:158px;width:112px;padding:8px 10px;background:#08151ad9;border:1px solid #a9b9b044;color:#d9dfd0;font-size:8px;letter-spacing:1px}#batteryHead{display:flex;justify-content:space-between;gap:8px;margin-bottom:7px}#batteryTrack{height:4px;background:#82918845;overflow:hidden}#batteryFill{height:100%;width:100%;background:var(--acid);transition:width .2s,background .2s}#battery.low #batteryFill{background:#dfa58b}#hud[data-minimal=true] #map,#hud[data-minimal=true] #bottom{opacity:.18;transition:opacity .25s}#hud[data-minimal=true] #map:hover,#hud[data-minimal=true] #bottom:hover{opacity:1}.recordFilters{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 13px}.recordFilters button{font-size:9px;padding:7px 10px;min-height:34px}.recordGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:9px}.recordCard{min-height:112px;padding:13px 14px!important;background:#101f25!important;border:1px solid #a6b39b42!important;text-align:left!important;display:flex;flex-direction:column;gap:7px}.recordCard:hover{border-color:#d9b77c!important;transform:translateY(-2px)}.recordCard .glyph{font-size:18px;color:#d9b77c}.recordCard strong{font:18px 'Barlow Condensed',sans-serif;letter-spacing:.7px;color:#e7dfcd}.recordCard small{font-size:8px;letter-spacing:1px;color:#a8b4ad}.recordDetail{font:13px 'Literata',Georgia,serif;white-space:pre-line;line-height:1.9;color:#e1dfd0;padding:14px;margin-top:12px;border-left:2px solid #b88b65;background:#08171d;max-height:32dvh;overflow:auto}.touch .stick-base{width:132px;height:132px;border:1px solid #b7c0ad8a;border-radius:50%;background:radial-gradient(circle,#1b3033d9,#0d1a20cf 68%);box-shadow:inset 0 0 0 13px #d5c08b0b,0 6px 24px #0006;position:relative;touch-action:none;user-select:none}.stick-base:before,.stick-base:after{content:'';position:absolute;background:#c9c4a52b}.stick-base:before{left:50%;top:13%;bottom:13%;width:1px}.stick-base:after{top:50%;left:13%;right:13%;height:1px}.stick-knob{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px;border:1px solid #d9c79b;background:radial-gradient(circle at 35% 30%,#647973,#1b2b2d);border-radius:50%;box-shadow:0 3px 12px #0008;transform:translate(0,0);pointer-events:none}.touch #lightTouch{font-size:9px;color:#e4c98f}.screen,.modal{animation:screenIn .24s ease-out}@keyframes screenIn{from{opacity:.65}to{opacity:1}}@media(pointer:coarse){#compass{right:15px;top:287px;width:55px;height:55px}#battery{right:15px;top:350px;width:95px;font-size:7px}.pad{left:18px;bottom:22px;display:block!important}.touch.look{right:18px;bottom:22px;grid-template-columns:repeat(3,48px);gap:6px}.touch.look button{width:48px;height:48px}.touch.look #interactTouch{grid-column:span 2;width:102px}.touch.look #lightTouch{grid-column:3;grid-row:2}#bottom{left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:42%;text-align:center;bottom:10px}#quick{bottom:185px}}@media(max-width:700px){#compass{top:291px}.recordGrid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}.recordCard{min-height:100px;padding:11px!important}}@media(max-height:520px) and (orientation:landscape){.touch{bottom:12px!important}.touch .stick-base{width:112px;height:112px}.stick-knob{width:46px;height:46px;margin:-23px}.touch.look{bottom:12px!important}.touch.look button{width:44px;height:44px}#compass{top:240px}#battery{top:302px}#objective{top:70px}.panel{max-height:94dvh}}@media(prefers-reduced-motion:reduce){#title .main-menu,.screen,.modal{animation:none}.main-menu button,.recordCard{transition:none}}
+.touch{opacity:var(--touch-opacity,.82)}.touch button,.touch .stick-base{transform:scale(var(--touch-scale,1));transform-origin:bottom left}.touch.look button{transform-origin:bottom right}@media(max-height:520px) and (orientation:landscape){#compass{top:80px}#battery{top:286px}}@media(prefers-reduced-motion:reduce){.stick-knob{transition:none}}
+
+/* Landscape-only mobile presentation */
+#orientationGuard{display:none}
+@media (orientation:portrait) and (pointer:coarse){
+  #orientationGuard{
+    position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:18px;padding:28px;text-align:center;
+    color:var(--paper,#e7dfcd);background:radial-gradient(ellipse at 50% 40%,#203238 0%,#0b1519 68%);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  #orientationGuard .rotateIcon{font-size:56px;line-height:1;animation:orientationTurn 2.4s ease-in-out infinite}
+  #orientationGuard strong{font-family:'Barlow Condensed',sans-serif;font-size:clamp(22px,6vw,34px);letter-spacing:.16em}
+  #orientationGuard p{max-width:320px;margin:0;color:var(--muted,#a8b4ad);font-size:11px;line-height:1.8;letter-spacing:.08em}
+  @keyframes orientationTurn{0%,15%{transform:rotate(0)}65%,85%{transform:rotate(90deg)}100%{transform:rotate(90deg)}}
+}
+@media (orientation:landscape),(pointer:fine){#orientationGuard{display:none!important}}
+
+
+/* The Last Signal: menu atmosphere and mobile HUD spacing */
+#title{
+  background:
+    radial-gradient(ellipse at 72% 42%,#b88b6510 0%,transparent 38%),
+    linear-gradient(90deg,#071116f7 0%,#0b171de8 35%,#0b171d9c 68%,#0b171d28 100%);
+}
+#title:after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(180deg,#02090b55,transparent 28%,transparent 72%,#02090b99),
+    repeating-linear-gradient(0deg,#d7c49a05 0 1px,transparent 1px 4px);
+  mix-blend-mode:screen;opacity:.48;
+}
+#title .intro{z-index:1}
+#title .main-menu{
+  border:1px solid #b88b6545;
+  border-left:2px solid #b88b65;
+  background:linear-gradient(110deg,#08151bea,#102126c9 72%,#0b171dba);
+  box-shadow:0 18px 55px #0007,inset 0 0 28px #d9b77c08;
+  backdrop-filter:blur(5px);
+}
+#title .main-menu:before{
+  content:"RECEIVER ONLINE  ·  86.4 MHz";
+  display:block;padding:0 20px 10px;
+  color:#b88b65;font:8px 'IBM Plex Mono',monospace;letter-spacing:2px;
+}
+#title .main-menu button{min-height:58px;transition:background .22s,padding .22s,border-color .22s}
+#title .main-menu button:hover{padding-left:26px!important;background:#d9b77c12!important}
+#title h1 span{color:#d9b77c;text-shadow:0 0 28px #d9b77c25}
+#title .intro>p{color:#d0d2c7}
+@media(max-height:560px) and (orientation:landscape){
+  #title{padding:34px 5vw 48px!important}
+  #title .intro{grid-template-columns:minmax(0,1fr) minmax(245px,34vw);column-gap:30px}
+  #title .intro>.eyebrow{margin-bottom:12px}
+  #title h1{font-size:clamp(48px,7.8vw,82px);line-height:.86}
+  #title h1:after{margin-top:12px;font-size:7px}
+  #title .intro>p{font-size:11px;line-height:1.65;margin:15px 0 12px}
+  #title .intro>.small{font-size:8px;padding-top:9px;margin-top:8px}
+  #title .main-menu{margin-top:0;padding:7px 0}
+  #title .main-menu button{min-height:43px;padding:7px 14px!important}
+  #title .main-menu button .menu-label{font-size:10px}
+  #title .main-menu button .menu-label small{font-size:8px}
+  #title .main-menu:before{padding:0 14px 5px;font-size:7px}
+  #title .menu-caption{padding:3px 14px 7px}
+  #title .edition{bottom:8px;font-size:7px}
+  #title .corner{display:none}
+}
+/* Touch controls must only exist during active gameplay, never over menus/dialogues. */
+body:not([data-view="world"]) #touchMove,
+body:not([data-view="world"]) #touchLook{display:none!important}
+@media(pointer:coarse){
+  .pad{left:14px!important;bottom:12px!important}
+  .pad .stick-base{width:112px;height:112px}
+  .pad .stick-knob{width:44px;height:44px;margin:-22px}
+  .touch.look{right:14px!important;bottom:12px!important;grid-template-columns:repeat(2,42px)!important;gap:5px}
+  .touch.look button{width:42px!important;height:42px!important;min-height:42px;padding:0;font-size:9px}
+  .touch.look #interactTouch{grid-column:span 2;width:89px!important;font-size:9px}
+  #quick{
+    right:50%!important;left:auto!important;transform:translateX(50%);
+    bottom:10px!important;gap:4px;max-width:38vw;justify-content:center;flex-wrap:wrap;
+  }
+  #quick button{min-height:31px;padding:5px 7px;font-size:8px;letter-spacing:0;white-space:nowrap}
+  #bottom{bottom:54px!important;max-width:42%;font-size:7px!important}
+  #subtitle{bottom:154px!important}
+  #objective{max-width:34vw}
+}
+@media(max-height:430px) and (orientation:landscape) and (pointer:coarse){
+  .pad .stick-base{width:94px;height:94px}
+  .pad .stick-knob{width:38px;height:38px;margin:-19px}
+  .touch.look{grid-template-columns:repeat(2,38px)!important}
+  .touch.look button{width:38px!important;height:38px!important;min-height:38px}
+  .touch.look #interactTouch{width:81px!important}
+  #quick{max-width:42vw}
+  #quick button{min-height:28px;padding:4px 5px;font-size:7px}
+  #bottom{bottom:46px!important}
+}
+
+
+/* =========================================================
+   ATMOSPHERIC HORROR DESIGN SYSTEM — THE LAST SIGNAL
+   Applied as a restrained, project-wide visual layer.
+   Existing gameplay, story, save state and controls are preserved.
+   ========================================================= */
+:root{
+  --paper:#D8D6CE;
+  --muted:#858782;
+  --acid:#697D68;
+  --red:#A56D50;
+  --ink:#090B0D;
+  --panel:#1C2022;
+  --cold:#586D78;
+  --line:#85878235;
+  --copper:#A56D50;
+}
+body{background:#090B0D;color:#D8D6CE}
+button{
+  color:#D8D6CE;background:#15191B;border:1px solid #586D7855;
+  border-radius:0;box-shadow:none;letter-spacing:.45px;
+}
+button:hover,button:focus-visible{
+  background:#202729;border-color:#A56D50;outline:1px solid #A56D5066;
+}
+button.primary{
+  background:#697D68;color:#090B0D;border-color:#697D68;
+}
+button.primary:hover{background:#82947f}
+button.danger{color:#A56D50;border-color:#A56D50}
+#grain{
+  opacity:.28;box-shadow:inset 0 0 110px 25px #0009;
+  background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,#00000018 3px,#00000018 4px);
+}
+.top{color:#D8D6CE}
+.brand{border-left-color:#A56D50;background:#090B0Dba;color:#B9B8AE}
+.live{color:#858782}
+#title{
+  background:
+    radial-gradient(ellipse at 74% 48%,#586D7820 0%,transparent 42%),
+    linear-gradient(90deg,#090B0D 0%,#090B0Df0%,#090B0D 34%,#090B0D9c 68%,#090B0D22 100%);
+}
+#title:after{opacity:.22;mix-blend-mode:normal}
+#title h1{color:#D8D6CE;text-shadow:0 5px 28px #000}
+#title h1 span{color:#858782;text-shadow:none}
+#title h1:after{color:#858782}
+#title .eyebrow,#title .intro .eyebrow:before{color:#A56D50}
+#title .intro>p{color:#D8D6CE}
+#title .main-menu{
+  background:linear-gradient(135deg,#15191Bf2,#090B0De8);
+  border:1px solid #586D7855;border-left:2px solid #697D68;
+  box-shadow:0 18px 55px #0009;backdrop-filter:blur(7px);
+}
+#title .main-menu:before{color:#858782}
+#title .main-menu button{
+  background:transparent!important;border:0;border-top:1px solid #85878222;
+  color:#D8D6CE;min-height:54px;
+}
+#title .main-menu button:hover{background:#586D781c!important;padding-left:24px!important}
+#title .main-menu button.primary{background:#697D68!important;color:#090B0D}
+#title .main-menu button.primary:hover{background:#82947f!important}
+#title .main-menu button .menu-index{color:#A56D50}
+#title .main-menu button .menu-label small{color:#858782}
+#title .menu-caption{color:#858782;border-bottom:1px solid #85878222}
+#title .intro .small{color:#858782;border-top-color:#85878235}
+#title .edition{color:#858782;border-top-color:#85878235}
+#title .corner{border-right-color:#A56D50}
+#title .corner strong{color:#D8D6CE}
+#title .corner p{color:#858782}
+#objective{
+  background:linear-gradient(90deg,#090B0DeF,#15191Bba,transparent);
+  border-left-color:#697D68;
+}
+#chapter{color:#A56D50}
+#task{color:#D8D6CE}
+#distance{color:#858782}
+#map{background:#090B0DeF;border-color:#586D7866;box-shadow:0 4px 24px #0009}
+#cross{background:#D8D6CE;border:0;box-shadow:0 0 0 3px #090B0D77}
+#prompt{
+  color:#D8D6CE;background:#15191Bf5;border-color:#A56D50;
+  border-top:2px solid #A56D50;box-shadow:0 5px 24px #0009;
+}
+kbd{color:#D8D6CE;border-color:#697D68}
+#subtitle{
+  color:#D8D6CE;background:#090B0Df2;border:1px solid #586D7844;
+  border-bottom:2px solid #A56D50;box-shadow:0 8px 40px #0009;
+}
+#subtitle:before{color:#A56D50}
+#bottom{color:#858782}
+#inventory{color:#D8D6CE;border-right-color:#697D68}
+#quick button,.touch button{
+  color:#D8D6CE;background:#15191BeF;border-color:#586D7866;
+  box-shadow:0 3px 12px #0007;
+}
+#quick button:hover,.touch button:hover{border-color:#A56D50;background:#1C2022}
+#pressure{color:#D8D6CE;background:#1C2022f2;border-color:#A56D50}
+#battery{color:#858782}
+#batteryFill{background:#697D68}
+.modal{background:#090B0Dcc;backdrop-filter:blur(6px)}
+.panel{
+  background:linear-gradient(145deg,#1C2022,#15191B 82%);
+  border:1px solid #586D7855;border-top:2px solid #A56D50;
+  box-shadow:0 28px 90px #000c;
+}
+.panel .eyebrow{color:#A56D50}
+.panel h2{color:#D8D6CE}
+.panel p{color:#D8D6CE}
+.panel .actions{border-top-color:#85878235}
+#journalText{color:#D8D6CE}
+.journalNav button,.recordFilters button{background:#15191B;color:#D8D6CE;border-color:#586D7855}
+.journalNav button.primary,.recordFilters button.primary{background:#697D68;color:#090B0D}
+.recordCard{background:#15191B!important;border-color:#586D7855!important}
+.recordCard .glyph{color:#A56D50}
+.recordCard strong{color:#D8D6CE}
+.recordCard small{color:#858782}
+.recordDetail{background:#15191B;color:#D8D6CE;border-color:#586D7855}
+.puzzle{background:#090B0D;border-color:#586D7855;border-top-color:#697D68}
+.puzzle label{color:#D8D6CE}
+.puzzle input[type=text]{background:#15191B;color:#D8D6CE;border-color:#586D78}
+.puzzle input[type=range]{accent-color:#697D68}
+.puzzle output,.hint{color:#697D68}
+.feedback{color:#A56D50}
+#reading{color:#858782}
+@media(pointer:coarse){
+  #quick{background:#090B0D44;padding:4px;border:1px solid #586D7833}
+  .touch{opacity:.78}
+  .touch button{min-width:42px;min-height:42px}
+}
+@media(max-width:650px){
+  #title{background:linear-gradient(90deg,#090B0Df5,#090B0Dce 70%,#090B0D77)}
+  #title .main-menu{max-width:520px}
+  .panel{background:#1C2022f7}
+}
+@media(prefers-reduced-motion:reduce){
+  #title .main-menu,.main-menu button,.recordCard{animation:none!important;transition:none!important}
+}
+
+</style><style>
+/* Main menu title artwork integration */
+#title{
+  position:fixed; inset:0; display:block; padding:0 !important; overflow:hidden;
+  background-color:#080b0d;
+  background-image:linear-gradient(90deg,#05090bd9 0%,#080d10a8 27%,#080d1040 62%,#05090b35 100%),
+    linear-gradient(0deg,#05090bd9 0%,transparent 38%,#05090b45 100%),
+    url("title-artwork.png");
+  background-size:cover; background-position:center center; background-repeat:no-repeat;
+}
+#title:before{display:none}
+#title:after{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background:linear-gradient(180deg,#02060838,transparent 25%,transparent 78%,#02060855),
+    repeating-linear-gradient(0deg,#d7c49a07 0 1px,transparent 1px 4px);
+  opacity:.7;
+}
+#title .intro{position:static;max-width:none;width:auto;display:block;z-index:1}
+#title .intro>.eyebrow,#title .intro>h1,#title .intro>p,#title .intro>.small{display:none!important}
+#title .main-menu{
+  position:absolute; z-index:2; left:clamp(18px,5vw,76px); bottom:clamp(22px,7vh,70px);
+  width:clamp(250px,29vw,370px); max-height:78vh; overflow:auto;
+  margin:0; padding:12px 0;
+  border:1px solid #bba17a66; border-left:2px solid #c19a69;
+  background:linear-gradient(110deg,#070b0df2,#101416eF 76%,#101416d9);
+  box-shadow:0 18px 55px #0009,inset 0 0 28px #d9b77c08;
+  backdrop-filter:blur(7px);
+}
+#title .main-menu:before{content:"86.4 MHz  ·  RECEIVER ONLINE";display:block;padding:5px 18px 12px;color:#c2a47b;font:8px 'IBM Plex Mono',monospace;letter-spacing:2px}
+#title .menu-caption{padding:5px 18px 10px;color:#c6b79d}
+#title .main-menu button{min-height:53px;padding:10px 18px!important;gap:13px;border-bottom:1px solid #b8b6a51c}
+#title .menu-label{font-size:21px;letter-spacing:1px}
+#title .menu-label small{font-size:8px}
+#title .menu-note{padding:11px 18px 4px;color:#aeb5ad}
+#title .corner{display:none}
+#title .edition{position:absolute;z-index:2;left:auto;right:22px;bottom:18px;width:auto;border:0;padding:0;text-align:right;font-size:8px;color:#c5c0b2}
+@media(max-width:700px){
+  #title{background-position:center center}
+  #title .main-menu{left:16px;bottom:18px;width:min(285px,48vw);max-height:86vh;padding:7px 0}
+  #title .main-menu:before{padding:4px 13px 8px;font-size:7px}
+  #title .menu-caption{padding:3px 13px 7px;font-size:7px}
+  #title .main-menu button{min-height:45px;padding:7px 13px!important;gap:10px}
+  #title .menu-label{font-size:17px}
+  #title .menu-label small{font-size:7px}
+  #title .menu-note{font-size:7px;padding:8px 13px 3px}
+  #title .edition{display:none}
+}
+@media(max-height:430px) and (orientation:landscape){
+  #title .main-menu{bottom:10px;max-height:92vh;width:clamp(230px,31vw,310px);padding:5px 0}
+  #title .main-menu button{min-height:39px;padding:5px 12px!important}
+  #title .menu-label{font-size:15px}
+  #title .menu-note{padding:5px 12px 2px}
+}
+</style>
+</head><body>
+<canvas id="world" aria-label="Birinchi shaxsdagi low-poly sohil o‘rmoni" data-section-id="01a1ca2d-132a-7869-9373-79c8a75a164b"></canvas><div id="grain"></div>
+<div class="top"><div class="brand">SHIMOLIY SOHIL / 09-STANSIYA</div><div class="tools"><span class="live" id="status">SUKUT</span><button id="sound" aria-label="Ovozni yoqish yoki o‘chirish">OVOZ: YO‘Q</button><button id="pause" class="hidden">II TO‘XTATISH</button></div></div>
+<div id="title" class="screen"><div class="intro"><div class="eyebrow">HIKOYA · OILA · DENGIZ ESIDAN CHIQARMAYDI</div><h1 data-section-id="01a1ca2d-132a-78c2-8da2-29ae773488b5">SO‘NGGI<br><span>SIGNAL</span></h1><p data-section-id="01a1ca2d-132a-78e0-b302-d4737451bd81">Singlingiz o‘n bir yil oldin shu yerda yo‘qolgan.<br>Bugun radioda uning ovozi eshitildi.<br>Ammo u sizni qutqarishga chaqiryaptimi — yoki xayrlashishga?</p><div class="main-menu" role="navigation" aria-label="Asosiy menyu"><div class="menu-caption"><span>09 / ASOSIY MENYU</span><span>86.4 MHz</span></div><button class="primary" id="start"><span class="menu-index">01</span><span class="menu-label">SOHILGA QAYTISH<small id="startHint">Yangi safar · birinchi bobdan</small></span><span class="menu-arrow" aria-hidden="true">↗</span></button><button id="continueGame" disabled><span class="menu-index">02</span><span class="menu-label">DAVOM ETISH<small id="continueHint">Hali safar boshlanmadi</small></span><span class="menu-arrow" aria-hidden="true">→</span></button><button id="settings"><span class="menu-index">03</span><span class="menu-label">SOZLAMALAR<small>Ovoz · harakat · xavf darajasi</small></span><span class="menu-arrow" aria-hidden="true">→</span></button><button id="how"><span class="menu-index">04</span><span class="menu-label">BOSHQARUV<small>Yo‘lga chiqishdan oldin</small></span><span class="menu-arrow" aria-hidden="true">→</span></button><button id="aboutStory"><span class="menu-index">05</span><span class="menu-label">HIKOYA HAQIDA<small>Spoylersiz · sohil ortidagi dunyo</small></span><span class="menu-arrow" aria-hidden="true">→</span></button><div class="menu-note">«Shoshilma, akajon. Bu safar yo‘lni eslab qol.»<br>Davom etish faqat shu ochiq oynadagi safar uchun.</div></div><div class="small">8 BOB · 8 BOSHQOTIRMA · 3 YAKUN · O‘ZBEKCHA<br>Taxminan 35–50 daqiqa: o‘qish va izlanish tezligiga bog‘liq.<br>Qorong‘i muhit, yo‘qotish va qayg‘u mavzulari. Keskin chaqnash yo‘q.<br>Dialoglar matnli. Quloqchin ixtiyoriy. Taraqqiyot shu ochiq oynada saqlanadi.</div></div><div class="corner"><strong>03:17</strong><p data-section-id="01a1ca2d-132a-790e-9b60-008dd3f11e5d">1996-YIL, 7-NOYABR</p><p data-section-id="01a1ca2d-132a-7916-afd0-de646cbdc40d">«Odamni unutmaslik bilan uni qo‘yib yubormaslik bir narsa emas.»</p></div><div class="edition"><span>THE LAST SIGNAL / KENGAYTIRILGAN HIKOYA</span><span>SHOSHILMANG. BU YERDA KUTADIGANLAR BOR.</span></div></div>
+<div id="hud" class="hidden"><div id="compass" aria-label="Kompas"><span class="north">N</span><i id="compassNeedle"></i><small id="headingLabel">000°</small></div><div id="objective"><small id="chapter"></small><div id="task"></div><div id="distance"></div></div><div id="cross"></div><button id="prompt" class="hidden"></button><canvas id="map" width="145" height="215" aria-label="Joriy hudud xaritasi; sariq — vazifa, misrang — xotira" data-section-id="01a1ca2d-132a-7971-9a3c-669b124d83ae"></canvas><div id="subtitle" class="hidden" aria-live="polite"></div><div id="pressure" class="hidden" role="status"></div><div id="battery" aria-label="Chiroq quvvati"><div id="batteryHead"><span>CHIROQ</span><span id="batteryLabel">100%</span></div><div id="batteryTrack"><div id="batteryFill"></div></div></div><div id="quick"><button id="lightBtn">F / CHIROQ</button><button id="journalBtn">J / DAFTAR</button><button id="inventoryBtn">I / BUYUMLAR</button><button id="mapBtn">M / XARITA</button></div><div id="bottom"><span><span class="desktop">WASD / YURISH · SHIFT / TEZROQ · ← → / QARASH · E / TEKSHIRISH<br></span>SAHNA USTIDA SURING / QARASH · MISRANG BELGI / XOTIRA</span><span id="inventory"></span></div></div>
+<div id="touchMove" class="touch pad hidden"><div id="joystick" class="stick-base" role="application" aria-label="Harakat joystigi"><div id="stickKnob" class="stick-knob"></div></div></div><div id="touchLook" class="touch look hidden"><button data-key="arrowleft" aria-label="Chapga qarash">↶</button><button data-key="arrowright" aria-label="O‘ngga qarash">↷</button><button id="interactTouch">TEKSHIRISH</button><button id="lightTouch" aria-label="Chiroqni almashtirish">F / CHIROQ</button></div>
+<div id="overlay" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="panel"><div class="eyebrow" id="modalTag"></div><h2 id="modalTitle" data-section-id="01a1ca2d-132a-7a01-975c-0ab863728182"></h2><p id="modalBody" data-section-id="01a1ca2d-132a-7a0b-a526-1c2ad860aa09"></p><div id="extras"></div><div id="journalText" class="hidden"></div><div id="reading"></div><div id="modalActions" class="actions"></div></div></div>
+<script data-section-id="01a1ca2d-132a-7a2c-94db-dc2cc410cfea">
+(()=>{'use strict';
+const $=id=>document.getElementById(id),canvas=$('world'),ctx=canvas.getContext('2d',{alpha:false});
+const chapters=[
+{title:'Qaytish',place:'DARVOZA VA QOROVUL UYI',mood:[24,40,41],intro:'Bahrom: «Mayli, qo‘rqayotgan bo‘lsang, ayt. Men ham qo‘rqaman. Faqat mening pensiyam bor.»',memory:{title:'Ikki xil etik',text:`Darvoza yonida ikkita bolalar etigi turibdi. Biri qizil, biri sariq. Mara ikkalasini ataylab kiygan: «Chap oyog‘im sarguzasht xohlaydi. O‘ng oyog‘im maktabga bormoqchi.» Siz o‘shanda undan uyalgandingiz. Hozir xotiradagi eng yorqin narsa shu etiklar.
+
+Etik ichidan eski avtobus chiptasi chiqadi. Orqasiga otangiz qalam bilan yozgan: «Ularni uyga olib borish. Sut olish. Aleksning gapini bo‘lmasdan eshitish.» Eng so‘nggi ishning tagiga ikki marta chizilgan. Siz otangiz bilan faqat janjallashgan kunni yodlab kelgansiz. U esa eshitishga harakat qilgan kunlarini ham yashagan.
+
+Daftarga etiklarning rasmini chizasiz. O‘xshamaydi. Bir qarashda ikkita baqlajon. Radio jim turadi, keyin Bahrom tomoq qiradi: «Rassom bo‘lmaganingdan xursandman. Bizda navbatchi yetishmaydi.» Siz birinchi marta kulasiz. Kulgi bu joyga xiyonatdek tuyulmaydi.`},nodes:[
+{title:'O‘n bir yilga kechikkan salom',label:'Darvoza yonidagi radio',text:`Mashinadan tushganingizda dengiz hidi bolalikdagidek. Faqat endi uni uy hidi demaysiz. Soat 03:17 da to‘xtagan. Kecha onangizning tug‘ilgan kuni edi. Qo‘ng‘iroq qilmoqchi bo‘lib, singlingizdan kelgan signalni eshitgansiz.
+
+«Aleks, meni qidirishni bas qilma.» To‘qqiz yoshli Mara. O‘n bir yil avvalgidek. Uning ovozini unuta boshlaganingiz uchun o‘zingizdan nafratlanib yurgandingiz. Endi esa uni eslayotganingizdan qo‘rqasiz.
+
+Qo‘l radiosi xirillaydi. «Bahrom. Sobiq qorovul, hozirgi oshqozon dorisi iste’molchisi. Sen Aleks bo‘lsang kerak. Otang meni ko‘p marta sendan ogohlantirgan.»
+
+«Nima degan?»
+
+«O‘g‘limni qo‘rqitma, degan. Demak, endi tanishdik. Men quruqlikdagi rele uyidaman. Ovoz orqali birga yuramiz. Bu yerda tanish ovozga emas, tekshiriladigan narsaga ishon: yozuv, sana, tirik odamning xatosi. Singling seni chaqirayotgan bo‘lsa ham shoshma.»`},
+{title:'Choynak masalasi',label:'Qorovul stolini tekshirish',text:`Uy ayvonida zanglagan choynak va «ISH JOYIDA UXLASH TAQIQLANADI» yozuvi bor. Tagiga boshqa qo‘l bilan: «Unda uyda ish qilish ham taqiqlansin», deb qo‘shilgan.
+
+Bahrom: «Ikkinchi yozuv meniki. Birinchisi ham. Boshqaruv bilan kelisholmadik.»
+
+Choynak ichidan Mara chizgan xarita chiqadi. Mayoq ulkan sabziga o‘xshaydi, dengizda esa mo‘ylovli baliq. «Bu otam», deb yozilgan. Otangiz dengizdan qo‘rqishni hech qachon tan olmagan. Mara esa uni baliq qilib chizgan.
+
+Rasm chetida xira jumla: «Akam qaytsa, chiroqni yoqing.» Siz ketgan oqshomni eslaysiz. O‘n olti yoshdasiz. Mara ortingizdan yugurib: «Men ham boraman», degan. Siz: «Yo‘qol!» deb yuborgansiz. So‘zlar odatda tez unutiladi. Ba’zilari esa odamdan uzoqroq yashaydi.
+
+Bahrom ovozingiz o‘zgarganini sezadi. Hazilni davom ettirmaydi. «Topganingni ol. Bu yerda eslagan narsalaringni yozib yur. Signal odamning boshidan o‘chirganini qog‘ozdan o‘chira olmaydi.»`},
+{title:'To‘g‘ri to‘lqin',label:'Antenna yonidagi qayd',text:`Antennaga bog‘langan qog‘ozda uchta chastota yozilgan. 85.1 — dengiz ob-havosi. 86.4 — navbatchilar kanali. 88.8 — tajriba uzatgichi. Oxirgisining ustidan qalin chiziq tortilgan.
+
+Qog‘oz ostida otangizning qo‘li: «Agar ovoz juda ravon bo‘lsa, ishonmang. Bahrom har gap orasida choyini puflaydi.» Radio darrov pufillaydi.
+
+«Dalilning bunaqa turi sudda o‘tadimi?» deysiz.
+
+«Choy sovimasidan o‘tsa kerak.»
+
+Keyin boshqa ovoz: «Akajon, men sovqotyapman.» Sizning qo‘lingiz uzatish tugmasiga boradi. Bahrom ismingizni sekin, ammo qat’iy aytadi. «Avval navbatchilar kanalini tanla. Biz bilan gaplashayotgan narsa xotiralaringni biladi. Niyatlaringni bilmaydi.»
+
+Qog‘ozni daftarga ko‘chirasiz: 86.4 MHz. Darvoza ortidagi yashil chiroq shunda yonadi. Mara juda odobli «iltimos» deydi. Haqiqiy Mara iltimos deganda odatda allaqachon ishingizni qilib qo‘ygan bo‘lardi.`},
+{title:'Darvozaning narigi tomoni',label:'Navbatchi qabul qilgichi',puzzle:0,text:`Chastota barqarorlashadi. Bahromning nafas olishi eshitiladi. Avval sezilmagan mayda tovush — tirik odamning charchog‘i. Darvoza o‘zidan baland nola bilan ochiladi.
+
+«Siz bu yerga nega qaytmadingiz?» deb so‘raysiz.
+
+«Qaytdim. Har yil. Faqat ichkariga kirish qaytish degani emas ekan.»
+
+U mayoq haqidagi dastlabki tajribani aytadi: dengizga ketgan kemalar bilan gaplashish uchun qurilgan tizim yo‘qolgan odamlarning aksini tutib qolgan. Avval xursand bo‘lishgan. Keyin uzatilgan har bir daqiqadan so‘ng kimningdir xotirasi yo‘qola boshlagan.
+
+Otangiz Hamid o‘sha kecha uzatgichni to‘xtatgan. Mara bilan birga qolgan. Qutqaruvchilar faqat uning kurtkasini topishgan. Sizga «bo‘ron» deyishgan. Kattalar ba’zan bolani asrash uchun haqiqatni yashiradi. Bola ulg‘aygach, o‘sha yolg‘on ichida yolg‘iz qoladi.
+
+Bahrom sizdan va’da so‘ramaydi. Faqat: «Tiriklarni ham esdan chiqarma», deydi. Yo‘lning ikki yonidagi misrang belgilar oilaviy xotiralarni ko‘rsatadi. Ularni qidirsangiz, signal bilmagan tafsilotlar yig‘iladi.`,choice:[['«Choyni sovitmang. Qaytaman.»','warm'],['«Meni yo‘ldan boshlang.»','steady']]}
+]},
+{title:'Elektr hidi',place:'GENERATOR HOVLISI',mood:[29,39,34],intro:'Bahrom: «Tok bor-yo‘qligini til bilan tekshirma. Bu maslahat uchun men uch yil o‘qidim.»',memory:{title:'Cho‘ntakdagi kulgi',text:`Ombor orqasidagi tushlik qutisi qopqog‘iga Mara yorliq yopishtirgan: «OTAMNING JUDA MAXFIY TAOMI.» Ichida kartoshka retsepti va bitta bo‘sh qog‘oz. Bo‘sh qog‘ozda: «Tuzni unutsa, shu yerga yig‘lasin.»
+
+Otangiz o‘sha qutini har kuni ishga olib kelgan. Hazildan ranjimagani uchun emas. Biror kun uni tashlab yuborsa, Mara kattalashib qolishini sezgan bo‘lsa kerak.
+
+Bahrom: «Hamid kartoshkani yaxshi pishirardi. Ustini kuydirib, pastini xom qoldirish uchun odamda alohida iste’dod bo‘lishi kerak.»
+
+Qutini yopayotganingizda o‘zingizni ushlab qolasiz: otangizning kulgisini eslayapsiz. Yillar davomida xotiralaringiz faqat yo‘qolish oqshomidan iborat edi. U odam o‘sha oqshomdan oldin ham yashagan. Kartoshka kuydirgan, sut olgan, singlingizning ma’nosiz latifalariga haddan ortiq kulgan. Daftarga «Hamid kulganida ko‘zini qisardi» deb yozasiz. Bu jumla o‘lim haqidagi hech qaysi hujjatda yo‘q.`},nodes:[
+{title:'Qarzga olingan yorug‘lik',label:'Yoqilg‘i nasosi',text:`Hovli darvozasi yopiladi, ammo ortingizdan qulflanmaydi. Bahrom buni atay aytadi. «Chiqish borligini bilish odamni ichkarida uzoqroq ushlab turadi.»
+
+Generator devorida otangizning ish jadvali turibdi. Uning oxirgi navbati qizil qalam bilan almashilgan. O‘sha oqshom u bu yerda bo‘lishi kerak emas ekan. Sizning imtihoningizga kelish uchun navbatchiligini bergan. Keyin Mara stansiyaga kelib qolganini eshitib qaytgan.
+
+«U mendan jahli chiqqan edi», deysiz.
+
+«Hamidning jahli tez chiqardi. Muhabbati sekin ketardi. Hali ham ketmagan bo‘lsa kerak.»
+
+Nasos ustida qisqa texnik qoida bor: avval QIRG‘OQ, keyin ARXIV, oxirida MAYOQ. Teskari ulansa, dengizdagi aksga tok ketadi. Tartibni eslab qoling.
+
+Radio orqali to‘qqiz yoshli ovoz yana keladi: «Dadam seni kutmadi.» Bahrom birinchi marta gapini kesadi: «Uning oxirgi qilgan ishini ko‘rgan odamman. Shu gapni qaytib aytma.»`},
+{title:'Tug‘ilgan kun uchun sham',label:'Ta’mirlash stolidagi kasseta',text:`Kassetaning yorlig‘i: «Mara — 9 yosh. Hamid kamerani teskari tutgan.» Tugmani bosganingizda Mara qo‘shiq aytadi. Siz uning ortidan so‘zlarni masxara qilib takrorlaysiz. Qizcha to‘satdan to‘xtab: «Akajon, sen ketganingda kim bilan urishaman?» deydi.
+
+«Bahrom amaki bilan. U arzonroq.»
+
+«Yo‘q, u doim yutqazadi.»
+
+Radio jim qoladi. Bahrom keyin: «Men bolaga atay yutqazardim», deydi.
+
+«Shaxmatda hammi?»
+
+«O‘sha qismini o‘chirsang bo‘ladi.»
+
+Kassetada otangiz ovozi: «Tilak tiladingmi?» Mara: «Ha. Lekin aytsam buziladi.» Keyin sizga sekin shivirlaydi: «Akam menga velosiped haydashni o‘rgatsin.»
+
+Siz kassetani cho‘ntagingizga solasiz. U singlingizning oxirgi so‘zlari emas. Shu sababli qimmatliroq. U yerda qizcha hech qanday sirni bilmaydi, hech kimni qutqarmaydi. Faqat ulg‘ayishni rejalashtiryapti. Uni faqat fojiaga aylantirib qo‘yganingizni tushunasiz.`},
+{title:'Devorning ichidan',label:'Sug‘urta ombori',text:`Ombor ichidan o‘zingizning ovozingiz keladi: «Yo‘qol, dedim!» Siz eshik tutqichini shunday qattiq qisganingizni keyin sezasiz. Bahrom sanashni buyuradi. «Beshta ko‘rayotgan narsang. To‘rtta ushlay oladigan narsang.»
+
+«Devor. Chiroq. Murvat. Qog‘oz. Sizning ahmoqona yo‘riqnomangiz.»
+
+«Zo‘r. Beshinchisi ishlayapti.»
+
+Nafasingiz tekislanadi. Devor ichidagi ovoz o‘chmaydi, ammo endi buyruq emas — tovush. Biror gapni ko‘p eshitish uni haqiqatga aylantirmas ekan.
+
+Otangizning texnik daftari tokchada. «Uzatgich qayg‘uga javob beradi. Aybdorlik eng kuchli tashuvchi. Odamni urmaydi; u o‘zini jazolashi uchun sabab beradi.» Pastida shaxsiy jumla: «Aleksga ketish mumkinligini aytishim kerak edi.»
+
+Siz ketishni xohlaganingiz uchun yomon aka bo‘lmagansiz. Lekin o‘sha so‘zni aytgansiz. Ikkalasi bir vaqtda rost bo‘lishi mumkin. Bahrom bunga nom qo‘ymaydi. Faqat generator oldida sizni kutadi.`},
+{title:'Ishga tushirish tartibi',label:'Asosiy elektr paneli',puzzle:1,text:`Sug‘urtalar to‘g‘ri tartibda ulanadi. Qirg‘oq chirog‘i. Arxiv chirog‘i. Mayoqning pastki yo‘lagi. Tepadagi nur hali o‘chirilgan. Siz tiriklar uchun elektr yoqqansiz, dengiz uchun emas.
+
+Telefon apparati uyg‘onadi. Raqam terish shart emas: uy raqamini barmoqlaringiz eslab qolgan. Onangiz uyqusirab «Aleks?» deydi. Siz uning ovozida yengillik eshitib, bir zum gapira olmaysiz.
+
+«Kecha telefon qilmading. Ishing ko‘pmi?»
+
+U tug‘ilgan kunini eslatmaydi. Mana shu og‘irroq. Siz tushuntirishingiz mumkin. Yoki yana ishni bahona qilishingiz mumkin.
+
+Bahrom radiosini atay uzoqqa qo‘yadi. Trubkaning narigi tomonida choy qoshiq tovushi bor. Oddiy oshxona. Ishlayotgan muzlatkich. Ertangi kun. Siz qutqarishga kelgan xotiradan tashqarida ham oilangiz bor.
+
+Onangiz: «Barcha savollaringga javob olib qaytishing shart emas. O‘zing qaytsang ham bo‘ladi», deydi. Bu iltimosni uzatgich takrorlay olmaydi: unda sizdan biror narsa olish niyati yo‘q.`,choice:[['«Tug‘ilgan kuningizni unutmadim. Qo‘ng‘iroq qilishdan qochdim. Kechiring.»','honest'],['«Ishlarim ko‘payib ketdi. Keyin gaplashamiz.»','evade']]}
+]},
+{title:'Unutilgan ismlar',place:'ARXIV VA OB-HAVO MINORASI',mood:[29,36,43],intro:'Bahrom: «Bu yerdagi hujjatlar nam. Bizda ob-havo hatto byurokratiyani ham yenggan.»',memory:{title:'O‘chmagan surat',text:`Arxiv yonida devordan tushgan surat yotibdi. Otangiz, Bahrom va siz tanimaydigan yigit kulib turibdi. Orqasiga «ISLOM. Yangi navbatchi. Choyni shakarsiz ichadi, ammo shirin gapiradi», deb yozilgan.
+
+Bahrom ismni eshitganda uzoq vaqt indamaydi. «Uni unutdim», deydi oxiri. «O‘lganini emas. Umuman bo‘lganini. Shuncha yil bo‘sh stulni nega surib qo‘ymasligimni tushunmay yashadim.»
+
+Siz suratdagi yigitni tasvirlaysiz: o‘ng qoshida chandiq, katta keladigan kurtka, qo‘lida singan krujka. Har bir tafsilotdan keyin Bahrom boshqa bir narsani eslaydi. Bir safar Islom qulfni tuzatib, kalitni ichkarida qoldirgan ekan. Ikkalasi derazadan kirishgan. Qorovulning uyiga.
+
+Bahrom kuladi va kulayotganida yig‘laydi. Siz uni ovutmaysiz. Suratni buklamasdan daftarga joylaysiz. Ba’zan qaytarib berish mumkin bo‘lgan yagona narsa odamning ismi. Bu kam emas. Bu yerda aynan shundan boshlash kerak.`},nodes:[
+{title:'Bo‘sh tortma',label:'Yo‘qolganlar ro‘yxati',text:`Arxivdagi tortmalar odamlarning familiyasi bilan belgilangan. Bir nechta yorliq oppoq. Qog‘oz yirtilmagan; siyoh xuddi hech qachon yozilmagandek yo‘q.
+
+Bitta ish jildida uch kishilik guruhning xarajatlari bor: uch piyola, uch nafar uchun ovqat, ikki ism. Bahrom uchinchi odamni eslolmaydi. «Biz ikki kishi edik», deydi. Keyin o‘z gapidan bezovta bo‘ladi. «Ammo nega har gal uchta stul qo‘yaman?»
+
+Signal odamni faqat o‘ldirmaydi. Boshqalarning hayotidan o‘chiradi. Keyin siz yo‘qotganingizni ham bilmay qolasiz. Shu sababli qayg‘u bu yerda ba’zan qarshilikning o‘zi.
+
+Jildning pastida ogohlantirish: «Ko‘chirma qog‘ozda saqlansin. Ovoz nusxasi xavfsiz emas.» Siz daftaringizning birinchi betiga yozasiz: Mara. Hamid. Saida. Bahrom. Aleks.
+
+Bahrom: «O‘zingni ham yozganing yaxshi.»
+
+«Nega?»
+
+«Odam boshqalarni qutqaraman deb o‘zini ro‘yxatdan chiqarib yuboradi. Texnik xato. Bizda ko‘p uchraydi.»`},
+{title:'1996-yilga kelmagan xat',label:'Saida yuborgan konvert',text:`Konvert onangizniki. Manzil: «Hamidga. Qaytarish talab qilinmaydi.» Pochta uni baribir qaytargan. Ona uni shu arxivga topshirgan ekan.
+
+«Bugun Aleks uzun bo‘lib qoldi. Sen yo‘qligingni eshik tepasidagi chiziqdan bildim: bo‘yini bir o‘zim o‘lchadim. Mara haqida gaplashsak, u xonasiga kirib ketadi. Uni gapirtirishga majburlamayapman. Lekin sukutni tuzalish deb adashtirmaslikka harakat qilyapman.
+
+Kecha uch kishilik osh qildim. O‘zimni koyidim. Keyin ertaga isitishga qoldirdim. Men yaxshiman deyishni istardim. Men ovqatlanyapman. Hozircha shu rost.»
+
+Xatning oxiri: «O‘g‘ling sen haqingda jahli bilan gapiradi. Uni to‘g‘rilamayman. G‘azabi ostidagi sog‘inchning ham nafasi chiqsin.»
+
+Siz onangiz sizni tushunmagan deb o‘ylagansiz. U sizga joy berib kelgan ekan. Yozilgan sana — 1990-yil 7-noyabr. Uning tug‘ilgan kuni. Arxiv paroli shoshilinch signal vaqti emas: 0711. Kimdir kundalik hayotni sirli fojiadan muhimroq deb bilgan.`},
+{title:'Yolg‘on osonroq gapiradi',label:'Tajriba bayonnomasi',text:`Stansiya rahbari eksperimentni «so‘nggi suhbat xizmati» deb atagan. Odamlar yo‘qotgan yaqinining ovozini yana bir bor eshitish uchun kelishgan. Dastlab bu yordam bergan. Keyin tizim aytilmagan gaplarni o‘zi to‘ldira boshlagan.
+
+«Men sendan faxrlanaman.» «Men azob chekmadim.» «Hammasi sening aybing.» Qaysi jumla odamni ushlab qolsa, o‘sha takrorlangan. Uzatgich tasalli bilan qiynoqning farqini bilmagan. Faqat bog‘lanish uzilmasin degan.
+
+Hamid tajribani to‘xtatishni talab qilgan. Imzosi yonida yana bir ism bor: Islom. Daftarga ko‘chiring. Bu ism keyin kerak bo‘ladi.
+
+Chiroq bir zum xiralashadi. Eshik tashqarisida ayol ovozi «Bahrom, uyga kel» deydi. Bahromning marhum rafiqasi. U radiosini mahkam tutib, o‘ziga gapiradi: «U meni kutsa, dori ichishni ham eslatardi.»
+
+«Dori ichdingizmi?» deysiz.
+
+«Mana, tirik odam kerakligi shu.»
+
+Qorong‘ilikka chiqishda bir qoida: uzun kulrang tuman ichida chiroqni o‘chiring va yugurmang. U yuzingizni emas, shovqiningizni qidiradi. Sizni topsa, xotira emas, faqat yo‘lingiz qisqaradi — xavfsiz belgiga qaytasiz.`},
+{title:'Oddiy kunning paroli',label:'Qulflangan arxiv shkafi',puzzle:2,text:`Shkaf ochiladi. Ichida falokatning oxirgi yozuvi emas, undan oldingi yigirma daqiqa bor. Siz o‘sha oqshom onangizga qo‘ng‘iroq qilib, shaharga ketganingizni aytgansiz. Mara esa stansiyaga sizni qidirib emas, otangizning tushlik qutisini olib kelish uchun borgan.
+
+Bu sizni hamma aybdan ozod qiladigan sehrli qog‘oz emas. Siz singlingizga og‘ir gap aytgansiz. Lekin o‘sha gap bo‘ronni yaratmagan. Tajribani boshlamagan. Eshiklarni yopmagan.
+
+O‘n bir yildan beri siz butun falokatni bitta jumlangizga sig‘dirib kelgansiz. Chunki aybdor bo‘lsangiz, dunyo boshqariladigandek tuyuladi: boshqa gap aytganingizda hammani saqlab qolardingiz. Tasodif va boshqalarning xatosi bilan yashash qiyinroq.
+
+Bahrom: «Senga men yaxshi odamsan deb aytmayman. Men seni o‘n olti yoshli bola bo‘lgansan deb aytaman.»
+
+Siz javob berishingiz kerak. Bu safar o‘zingizga.`,choice:[['«Men uni ranjitdim. Lekin hammasiga men sababchi emasman.»','honest'],['«Qog‘ozni ko‘rsam ham, o‘zimni kechira olmayman.»','hurt']]}
+]},
+{title:'Qizil qayiq',place:'TO‘LQINTO‘SAR VA QAYIQXONA',mood:[22,38,44],intro:'Bahrom: «Ko‘prik qimirlaydi. Sen qimirlamasang ham qimirlaydi. Demak, bu safar ayb senda emas.»',memory:{title:'Baliq tutolmagan kun',text:`Qayiqxona orqasida eski qalay baliq yaltiraydi. Mara birinchi marta baliqqa chiqqaningizda shuni ipga bog‘lab suvga tashlagan. Otangiz uni tutib olib, yarim soat maqtangan. Siz haqiqatni aytmoqchi bo‘lganingizda u ko‘z qisgan.
+
+U yolg‘onni bilgan. Qizining unga katta bir quvonch sovg‘a qilayotganini ham bilgan. Ba’zi o‘yinlarga yutish uchun emas, bolangning yuzini ko‘rish uchun qo‘shilasan.
+
+Bahromning xotirasida o‘sha safar qayiqning eshkagi tushib ketgan. Hamid qo‘li bilan eshgan. Mara esa jiddiy qilib: «Dada, baliqdan qarzga olsak bo‘ladimi?» deb so‘ragan.
+
+Siz kulasiz. Keyin otangizning qo‘llari qanday bo‘lganini eslashga harakat qilasiz. Chandiq, tirnoq ostidagi qora moy, sovuqdan dag‘allashgan barmoqlar. Bolalikda u qo‘llar hamma narsani tuzatadigandek tuyulardi. Hozir qalay baliqni shu qo‘llardek ehtiyotlab ushlaysiz. Otangiz ham ba’zi narsalarni tuzata olmagan. Shu sababli u sizni kamroq sevgan emas.`},nodes:[
+{title:'Chiqmagan yo‘lovchi',label:'Qayiqxona devoridagi chizma',text:`Qizil qayiq haqidagi rasmiy xulosa: Mara o‘zi dengizga chiqqan. Ammo qayiq arqoni o‘sha oqshom ichkaridan bog‘langan. To‘qqiz yoshli bola uni ocha olmasdi. Otangizning chizmasida aynan shu tugun doira bilan belgilangan.
+
+Devor ortidan Mara «Men hech qachon qayiqka chiqmaganman» deydi. Ovoz bu safar kattaroq. Charchagan. Siz ichingizdagi umidni ehtiyotkor ushlaysiz. U ham odamni yiqitishi mumkin.
+
+Bahrom eslaydi: tizim ishga tushganda Mara mayoqning pastki xonasida bo‘lgan. Hamid uni olib chiqishga tushgan. Uzatgich o‘zini himoya qilish uchun eshiklarni yopgan. Ular dengizga ketmagan; signalning ichida qolgan.
+
+Dengiz sirli narsani yashirmagan. Odamlar o‘z tajribasini yashirish uchun dengizni ayblagan.
+
+Qayiq yonidagi daftar chetida uchta belgi: qisqa, uzun, qisqa. Otangiz uyga qaytganda eshikni shunday taqillatardi. Siz maktabdan kech qaytsangiz ham shu taqillatishni ishlatardingiz. Faqat oilangizning odati edi. Endi u yo‘l ko‘rsatishi mumkin.`},
+{title:'Otangizning ovozi',label:'Suv o‘tkazmaydigan g‘ilof',text:`G‘ilof ichidagi kasseta ustiga sizning ismingiz yozilgan. Tovush shovqinli, orqada temir taqillaydi. Hamid shoshilmay gapirishga urinadi. Odamning bolalarini qo‘rqitmaslik uchun qiladigan so‘nggi kichik mehnati.
+
+«Aleks. Agar eshitsang, onangga ayt: Mara qayiqda emas. Men uni topdim. Hozir yonimda. Sen o‘sha kuni shaharga ketganingni bilaman. Ketish mumkin, o‘g‘lim. Men senga eshikni shunday tor qilib ko‘rsatmasligim kerak edi.»
+
+Pauza. «Men ba’zan sendan kuchli bo‘lishni talab qildim. Bu mening o‘rnimga katta bo‘lishingni so‘raganim ekan. Kechir. Maraga qarashingni xohlardim. Lekin sen uning otasi emas, akasisan.»
+
+Orqada Mara: «Dada, u yana nasihat qilyaptimi?» deydi.
+
+Hamid kulishga urinadi. «Ha. Bu safar oxirgisi bo‘lsa kerak.»
+
+Siz ovozni to‘xtatasiz. Tayyor emasligingiz uchun. Daftar hech qayerga ketmaydi. Kasseta ham. Har bir og‘ir gapni bir o‘tirishda eshitishingiz shart emas.`},
+{title:'Vaqtida aytilmagan javob',label:'Qutqaruv qayig‘i radiosi',text:`Kassetani davom ettirasiz. «Mara pultni bosib turibdi. Men eshikni ochaman. Birimiz qo‘yib yuborsa, uzatgich qirg‘oqqa o‘tadi. Unda faqat biz emas, hammaning yo‘qotgani ovoz oladi.»
+
+Temirning ingragani. Hamidning nafasi. «Aleks, meni qutqarish uchun hayotingni to‘xtatma. Sening yaxshi yashashing menga xiyonat emas.»
+
+So‘ng uch marta taqillash: qisqa, uzun, qisqa. Otangizning uyga qaytish odati. Bu uzatgichning emas, eshikni ochayotgan odamning tovushi. Keyin kasseta tugaydi.
+
+Siz «Men ham sizni yaxshi ko‘raman» deysiz. Kechikkan gap havoda qoladi. Javob kelmaydi. Bu safar jimlik uning ovoziga aylanmaydi. Bahrom ham bu bo‘shliqni gap bilan to‘ldirmaydi.
+
+Bir ozdan keyin u so‘raydi: «Keyingi qadamni ko‘ryapsanmi?»
+
+Siz butun hayotingizni emas, oldingizdagi yog‘och polni ko‘rasiz. «Ha.»
+
+«Hozircha shunisi yetadi.» Qayiqxona eshigi oilaviy taqillatish kodini kutmoqda. Uzun kulrang tuman oralig‘ida esa chiroqni o‘chirishni unutmang.`},
+{title:'Qisqa. Uzun. Qisqa.',label:'Qayiqxona eshik paneli',puzzle:3,text:`Siz bolalikdagi taqillatishni qaytarasiz. Qulf ochiladi. Ortida otangiz emas — yuqoriga chiqadigan xizmat yo‘lagi. Lekin endi bu yo‘l tasodif emas, uning sizga qoldirgan ishining davomi.
+
+Mara radiosi yana uyg‘onadi. «Akam hech qachon kalitini olib yurmasdi. Dada qulfni almashtirsakmi deb qo‘rqitardi. Keyin o‘zi eshikni ochib qo‘yardi.»
+
+Siz kulimsiraysiz. Haqiqiy voqea. Ammo to‘g‘ri ma’lumotning o‘zi haqiqiy odam degani emas. Uzatgich bularni ham eshitgan bo‘lishi mumkin.
+
+«Mara, sen mendan nimani xohlaysan?»
+
+Ikki ovoz bir vaqtda javob beradi. Kichigi: «Meni uyga olib ket.» Kattasi: «Sen uyga bor.»
+
+Bahrom hech qaysisini tanlamaydi. «Endi farqni eshitding. Keyingi xonada xotiralarni vaqtiga qo‘y. U narsa har bir esdalikni oxirgi kechaga aylantirishga urinadi. Hayoting faqat o‘sha kechadan iborat emas.»
+
+Siz daftaringizni mahkamroq ushlaysiz. Bu safar undagi og‘irlik sizni pastga tortmaydi.`}
+]},
+{title:'Uyga o‘xshagan xona',place:'XOTIRA YO‘LAGI',mood:[43,38,31],intro:'Aleks: «Uyimizdagi gilam bundan ham xunuk edi.» Bahrom: «Demak, bu narsa didni emas, qayg‘uni o‘rgangan.»',memory:{title:'Ko‘k tugma',text:`Skameyka ustida ko‘k palto tugmasi turibdi. Mara uni boylik deb yurardi. Siz «Bu oddiy tugma» degansiz. U: «Sen ham oddiy odamsan, lekin onam seni yaxshi ko‘radi-ku», deb javob bergan.
+
+O‘shanda jahlingiz chiqqan. Hozir singlingizning tiliga qoyil qolasiz. Bahrom bu gapni eshitgach «Bu bolaga men shaxmatda bekorga yutqazmagan ekanman» deydi.
+
+Mara tugmani siz shaharga ketadigan kuni bermoqchi bo‘lgan. Siz buni hech qachon bilmagansiz. Tugma o‘ralgan qog‘ozda: «Shahar kattadir. Yo‘qolsang, cho‘ntagingdan meni topasan», deb yozilgan.
+
+Siz tugmani kaftingizga olasiz. Uning singlingiz bilan gaplashish qudrati yo‘q. Hech qanday darvoza ochmaydi. Faqat kichik, ko‘k, cheti singan tugma. Shunga qaramay, uni cho‘ntagingizga joylaganingizda ilk marta singlingizni o‘zingiz bilan olib yurish uchun uning qamalib qolishi shart emasligini his qilasiz. Yo‘qolmaslik uchun odam ba’zan juda kichik narsani ushlab turadi.`},nodes:[
+{title:'Noto‘g‘ri qo‘yilgan dasturxon',label:'Dasturxon yonidagi radio',text:`Xizmat yo‘lagi bolalik uyingizga o‘xshagan hovliga ochiladi. Tom yo‘q. O‘rmon o‘rtasida stol, uchta stul, onangizning pardasi. Uyning nusxasi. Esdaliklarni tiklash oson, ulardagi bo‘sh joyni tushunish qiyin.
+
+Stolda to‘rtta piyola. Mara sut ichmagan. «Issiq sutning ustidagi parda menga qaraydi», derdi. Onangiz uni majburlamasdi; suv solib berardi. Nusxa barcha piyolalarni sutga to‘ldirgan.
+
+Kichkina Mara stol yonidan «Hamma narsa avvalgidek bo‘ladi» deydi. Avvalgidek degani qaysi kun? Otangiz bilan urishgan kunmi? Onangiz kasal bo‘lgan qishmi? Sizning ilk marta singlingizni velosipedda qo‘yib yuborgan oningizmi?
+
+Baxt ham bir xil bo‘lmagan. Oila mukammal manzara emas edi. Ovoz uni juda silliq chizgan.
+
+Bahrom past ovozda: «Qaytish uchun ba’zan uyga o‘xshagan joydan chiqish kerak», deydi. Siz piyolalardan birini suvga almashtirasiz. Ovoz bir lahzaga so‘z topolmay qoladi.`},
+{title:'Uch buyum, uch yil',label:'Xotiralar javoni',text:`Javonda uch buyum bor. SARIQ SHARF — 1984-yilning qishi. Otangiz uni uzun to‘qigan, Mara «Menmi, jirafami?» degan. QIZIL QAYIQ surati — 1985-yilning yozi, hech kim yo‘qolmagan kun. OCHILMAGAN XAT — onangiz 1990-yil 7-noyabrda yozgan konvert.
+
+Signal ularni boshqa tartibda ko‘rsatadi: xat, qayiq, sharf. Go‘yo onangiz yo‘qotishni oldindan bilgan, Mara tug‘ilishidanoq g‘oyib bo‘lishga ketayotgan bola bo‘lgan. Siz esdaliklarni vaqtiga qaytarishingiz kerak. Avval sharf. Keyin qayiq. Keyin xat.
+
+Nega bu muhim? Chunki qayg‘u o‘tmishni qayta bo‘yaydi. Har bir kulgida alomat qidirasiz. Har bir xayrlashuvni oxirgisi deb o‘qiysiz. Aslida o‘sha yoz kuni faqat yoz kuni bo‘lgan.
+
+Bahrom: «Hamid sharfdan nafratlanardi. Uni kiyib, mashina eshigiga qisib qo‘ygan.»
+
+«Nega yechmagan?»
+
+«Qizi to‘qigan. Otalarda mantiq shunday joyda tugaydi.» Siz buyumlar orasida faqat falokat emas, yana hayot ko‘ra boshlaysiz.`},
+{title:'Yigirma yoshli singil',label:'O‘chgan televizor',text:`O‘chgan ekran yuzingizni aks ettiradi. Orqangizda kattalashgan Mara paydo bo‘ladi — faqat aksda. Uning sochi onangiznikidek qisqa. Ko‘z osti charchagan. Bu ham tasvir bo‘lishi mumkin. Siz ishonishni emas, savol berishni tanlaysiz.
+
+«Menga biror sir ayt», deysiz.
+
+«Sir aytsam, u ham eshitadi. Buning o‘rniga mendan hech narsa talab qilma.»
+
+U pultni o‘n bir yil ushlab turganini tushuntiradi. Vaqt bu yerda bir xil o‘tmaydi. Ba’zan bir daqiqa, ba’zan butun qish. Otangiz uni eshikdan o‘tkazgan, o‘zi qaytolmagan. Mara signalni tashqariga chiqarmaslik uchun qolgan.
+
+«Men seni yomon ko‘rgan kunlarim bo‘lgan», deydi u. Sizning yuragingiz cho‘kadi. «Keyin sog‘inganman. Odam ikkalasini ham qilishi mumkin.»
+
+Siz undan kechirimning mukammal jumlasini kutgansiz. Haqiqiy singlingiz esa sizni birdan davolamaydi. Unga ham vaqt kerak bo‘lgan. Uning hayoti sizning aybdorligingizni tugatish uchun yozilmaganini tushunasiz.
+
+«Hozir-chi?» deysiz.
+
+«Hozir juda charchadim, akajon.»`},
+{title:'Hammasi oxirgi kun emas',label:'Xotiralar taqsimlagichi',puzzle:4,text:`Buyumlar o‘z vaqtiga qaytadi. Devordagi soat ilk marta 03:18 ni ko‘rsatadi. Siz dunyoni o‘zgartirmadingiz. Faqat bitta daqiqaning butun umringizni egallab turishiga qarshi chiqdingiz.
+
+Mara televizor ichidan so‘raydi: «Men haqimda eng ko‘p nimani eslaysan?»
+
+Siz «yo‘qolganingni» demoqchisiz. To‘xtaysiz. Keyin ikki xil etikni, sut pardasidan qo‘rqishini, tugmani boylik deb yurishini, otangizni qalay baliq bilan aldaganini aytasiz.
+
+«Yaxshi», deydi u. «Men ham o‘shalarni eslamoqchiman.»
+
+Bahromning radiosida metall shovqin. U o‘z rele uyidan chiqishi kerak ekan. Signal sizning yo‘lingiz ochilgach uning tarmog‘iga o‘tgan. U endi siz bilan ikki tomondan bir nuqtaga keladi.
+
+Sizdan yana bir tanlov so‘raladi: Maraga uni albatta qutqarishingizni va’da qilish. Yoki nimani qila olishingizni aniq bilmasligingizni tan olish. Umid ba’zan yolg‘on gapirish uchun juda qulay bahona.`,choice:[['«Seni eshitaman. Ammo hammasini tuzataman deb yolg‘on va’da bermayman.»','honest'],['«Nima bo‘lsa ham seni olib chiqaman.»','promise']]}
+]},
+{title:'Tirik odamning ismi',place:'RELE 02 VA TUMAN YO‘LI',mood:[26,35,36],intro:'Bahrom: «Keksayganimning bir afzalligi bor: sharpalar ham ortimdan tez yura olmaydi deb umid qilaman.»',memory:{title:'Rafiqasiga aytolmagan latifa',text:`Rele devorida Bahromning kichik yozuvi bor. «Nilufarga aytish: bugun shifokor menga ko‘proq piyoda yuring dedi. Undan mashinamni sotib olishni taklif qildim.»
+
+«U kulganmi?» deb so‘raysiz.
+
+Bahrom: «Aytishga ulgurmadim. Keyin latifa ham o‘sha yerda qoldi.»
+
+Siz uni ovoz chiqarib o‘qiysiz. Juda kuchli latifa emas. Bahromning o‘zi ham shuni tan oladi. «U ham shunday derdi», deb qo‘shadi. Bu safar uning ovozida yo‘qotishdan tashqari bir iliqlik bor.
+
+Nilufar vafot etganidan keyin Bahrom mayoqdan uning ovozini eshitgan. Har safar borishga oz qolgan. Uni ushlab qolgan narsa ulkan donolik emas: uyidagi mushuk ovqat kutayotgani. «Ismi Polkovnik. Harbiy xizmat qilmagan. Lekin o‘zini shunday tutadi.»
+
+Qog‘ozni daftarga joylaysiz. Ba’zan odamni hayotga qaytaradigan narsa katta ma’no emas. Bir jonzotga ovqat berish, yaroqsiz latifani aytib tugatish, ertalab bozorga chiqish. Oddiy ishlar ham odamni ushlab qoladigan arqon bo‘la oladi.`},nodes:[
+{title:'Radio jim bo‘lganda',label:'Bo‘sh rele postining radiosi',text:`Bahrom bir necha daqiqa javob bermaydi. Siz bunga endi o‘rganmagansiz. Dastlab uning gaplari ortiqcha edi. Endi jimlikning ichida butun yo‘l og‘irlashadi.
+
+Rele postida sizga qaratilgan yozuv turibdi: «Qari odamni qidirma. U senga yordam bera olmaydi.» Harflar otangiznikiga o‘xshaydi, ammo «yordam» so‘zidagi xato boshqa. Otangiz imlosi yomon edi; bu narsa uni mukammal tuzatib qo‘ygan.
+
+Siz kulib yuborasiz. Qo‘rquv orasidagi juda kichik kulgi. Otangizning xatosi hozir uni himoya qilmoqda.
+
+Bahrom nihoyat chiqadi. «Uzr. Zinapoyada biroz to‘xtadim.» Nafasi og‘ir. U aslida yiqilgan. Sizni xavotirga qo‘ymaslik uchun kichraytirib gapiryapti.
+
+«Menga aniq qayerdaligingizni ayting», deysiz.
+
+«Ikki yo‘l orasidagi metall eshik. Qulf ism so‘rayapti. O‘zimnikini kiritsam, qabul qilmayapti.»
+
+Rele yo‘riqnomasida «Unutilgan navbatchini nomlang» deyilgan. Arxivdagi yigit. Islom. Ismni bilmasangiz, daftardagi tajriba bayonnomasiga qayting. Eslab qolish bu safar haqiqiy odamga eshik ochadi.`},
+{title:'Eng oson yo‘l',label:'Buzilgan aloqa qutisi',text:`Signal juda yaxshi taklif qiladi. Bahromni qidirmasangiz, mayoqka to‘g‘ri yo‘l ochadi. Singlingizga ertaroq yetasiz. Bir qari odamga yordam berish esa vaqt oladi.
+
+Siz bunday gapni ilgari o‘zingizga aytgansiz. Onangizga qo‘ng‘iroq qilishni keyinga surganingizda. Do‘stlaringizga javob bermaganingizda. Hayotni keyinroq davom ettiraman, avval o‘tmishimni tugatay, deganingizda.
+
+Bahrom radio orqali hech narsa so‘ramaydi. «Meni eshitish uchun shart emas», deydi. Shuning uchun uni tashlab ketish yanada oson tuyulishi mumkin. O‘zini yuk deb his qiladigan odam yukini yengillashtirishni boshqalardan so‘ramaydi.
+
+Qutida ikki tugma bor: «TO‘G‘RI MAYOQ» va «RELE ALOQASI». Birinchisi chiroyli yoritilgan. Ikkinchisining harfi o‘chgan. Sizning tanlovingiz buyuk nutq emas, qaysi simni tekshirishingizda ko‘rinadi.
+
+Tirik odamlarning ehtiyoji xotiralar kabi yorqin emas. Ba’zan ular faqat nafasini rostlash uchun yonida kimdir bo‘lishini xohlaydi.`,choice:[['«Bahrom, shoshilmang. Avval sizni eshikdan olib chiqamiz.»','care'],['«Mayoqqa yo‘lni ko‘rsating. Keyin sizga qaytaman.»','leave']]},
+{title:'Islom uchun bir stul',label:'Yo‘qolgan navbatchi belgisi',text:`Tuman ichida bir soya ketma-ket boshqa ovozlarda gapiradi. Ona, ota, Mara. Keyin siz tanimaydigan yigit: «Meni ismim bilan chaqiring.»
+
+Siz «Islom» deysiz. Tuman bo‘linmaydi. Musiqa tantanali ko‘tarilmaydi. Faqat radio ichida bir inson nafas olgandek bo‘ladi. Bahrom eslaydi: Islom oxirgi kecha uzatgichni tarmoqdan uzish uchun qo‘lini kuydirgan. Keyin hamma uning qahramonligini emas, o‘zini unutgan.
+
+«Men uning onasiga nima deyman?» deydi Bahrom.
+
+Siz javobni bilmayapsiz. Lekin endi hech bo‘lmaganda borishingiz mumkinligini aytasiz. Ism, surat, voqea. Insonning dunyoda qoldirgan izlari.
+
+Yo‘l o‘rtasidagi kulrang tuman qalin. Bahrom: «Chiroqni o‘chir. Sekin yur. Agar yaqinlashsa, orqaga qayt. Qahramon bo‘lish uchun to‘xtamasdan oldinga yurish shart emas», deydi.
+
+Daftardagi ismlarga qaraysiz. Oldin ularni yo‘qotmaslik uchun yozgansiz. Endi ular sizga qaysi tomonga yurishni aytyapti. Qulfga unutilgan navbatchining ismini kiriting.`},
+{title:'Eshikning bu tomonida',label:'Rele eshigi klaviaturasi',puzzle:5,text:`Qulf Islom ismini qabul qiladi. Ikkinchi tomondan eshik suriladi. Bahrom ilk marta oldingizda: radiodagi hazillardan kichikroq, yelkasi egilganroq. Bir oyog‘ini avaylab bosyapti.
+
+U sizga qarab: «Sen ham otangdek qovog‘ingni uyib olarkansan», deydi.
+
+Siz unga qo‘lingizni uzatasiz. «Siz ham radiodagidan qariroq ekansiz.»
+
+«Radio yosh ko‘rsatadi. Rasm qo‘yishmaganiga shukur.»
+
+Ikkingiz kulasiz. Keyin u devorga suyanib o‘tiradi. Tirik odamni topish doim quchoqlash bilan tugamaydi. Ba’zan tizzasiga bint o‘rash, suv berish, yolg‘on «yaxshiman»iga ishonmaslik bilan boshlanadi.
+
+Bahrom mayoqning ikki tarmog‘ini tushuntiradi. Odamlar chiqadigan ko‘prikni tok bilan ta’minlash mumkin. Yoki uzatgichni to‘liq yoqib, o‘liklarning ovozini qirg‘oqqa olib o‘tish mumkin. Ikkalasi bir vaqtda bo‘lmaydi.
+
+«Men ilgari xotinimni yana bir marta eshitishni tanlardim», deydi u. «Bugun mushugim och qolganini o‘ylayapman. Bu yaxshiroq odam bo‘ldim degani emas. Balki hali kerak ekanman deganidir.»`}
+]},
+{title:'Kim uchun yorug‘lik',place:'MAYOQ OSTIDAGI TEXNIK YO‘LAK',mood:[31,33,32],intro:'Bahrom: «Agar chiqib olsak, choyni men qilaman. Agar chiqolmasak ham, navbatchilik daftariga seni yozaman.»',memory:{title:'Bo‘sh bet',text:`Texnik uyacha ichida otangizning cho‘ntak daftari turibdi. Oxirgi to‘ldirilgan betda: «Yakshanba: Aleks bilan velosipedni tuzatish. Mara bilan bozordan ko‘k bo‘yoq olish. Saida bilan bir oz sayr. Hech qanday ish haqida gapirmaslik.»
+
+Keyingi bet bo‘sh. Siz uni anchagacha tomosha qilasiz. Odamning o‘limi ba’zan xuddi shu: tugallanmagan oddiy ro‘yxat. Kelajak katta bir va’da emas, velosipedning qiyshaygan g‘ildiragi ham bo‘lar ekan.
+
+Bahrom qalamini sizga beradi. «Qolganini yoz.»
+
+Siz otangizning rejasini davom ettirmaysiz. O‘zingiznikini yozasiz: «Onamga qo‘ng‘iroq. Bahromni uyiga eltish. Polkovnikka ovqat. Velosiped sotib olish. Bir kuni dengizga bu ish uchun emas, dam olishga kelish.»
+
+Ro‘yxatning oxiriga «yaxshi yashash» deb yozmoqchi bo‘lasiz. Juda katta topshiriq. Uni o‘chirib, «ertalab non olish» deb qo‘yasiz. Hozircha shunisi yetadi. Daftar endi faqat o‘tmish haqida emas.`},nodes:[
+{title:'Ikki sim',label:'Favqulodda elektr chizmasi',text:`Mayoq tagida ikkita qalin kabel yotibdi. Birida «ODAMLAR», ikkinchisida «SIGNAL» yozuvi. Qaysi biri muhimligini tushunish uchun texnik bo‘lish shart emas. Lekin qaysi birini tanlash qiyinligini bilish uchun kimnidir yo‘qotgan bo‘lish kerak.
+
+Chizmada ko‘rsatilgan xavfsiz holat: odamlar ko‘prigi YOQILGAN, dengiz signali O‘CHIRILGAN, zaxira quvvati YOQILGAN. Shunda uzatgichning ichidagi aks bilan tirik tanalar ajratiladi. Bu Marani bolaligingizga qaytarmaydi. Ammo Bahromni qirg‘oqqa chiqarishi mumkin.
+
+Kichkina ovoz: «Agar meni yaxshi ko‘rsang, boshqa simni yoq.»
+
+Siz ilgari sevgi har safar ko‘proq og‘riqqa rozi bo‘lish deb o‘ylagansiz. Yaxshi aka bo‘lish uchun azob chekish kerak. Yaxshi o‘g‘il bo‘lish uchun ketmaslik kerak. Endi birinchi marta savol tug‘iladi: sizni yaxshi ko‘rgan odam shuni talab qilarmidi?
+
+Bahrom javob bermaydi. U simni ushlamaydi ham. Bu tanlovni sizning o‘rningizga qilib, keyingi o‘n bir yilingizga yangi aybdorlik qoldirishni istamaydi.`},
+{title:'Onamning ikkinchi qo‘ng‘irog‘i',label:'Favqulodda telefon',text:`Telefon bu safar o‘zi jiringlaydi. Siz ko‘tarmasdan oldin trubka orqasida oshxona soatini eshitasiz. Onangiz Bahrom qoldirgan raqamni topibdi.
+
+«O‘sha yerdamisan?» deydi. Siz ha deysiz. «Otangning yozuvini topdim.» Biroz jimlik. «U nima dedi?»
+
+Siz hammasini emas, bittasini aytasiz: ketish mumkin, deganini. Onangizning nafasi bir lahza buziladi. Keyin juda oddiy savol beradi: «Issiq kiyinganmisan?»
+
+Odam ba’zan katta qayg‘uni shu qadar kichik savolga joylaydi. Siz «Ha» deysiz. Bu safar rost: otangizning eski kurtkasi ustingizda.
+
+Onangiz: «Marani eshitayotgan bo‘lsang, men uni unutmaganimni ayt. Ammo qaytmasa, unga mendan qarzdor emasligini ham ayt.»
+
+Siz birinchi marta onangizning Maraga faqat qayt deganini emas, tinch bo‘l deganini eshitasiz. U ham o‘n bir yil yashagan. Sizning telefoningiz jiringlamagan kechalar ham.
+
+Trubkani qo‘yishdan oldin «Ertalab kelaman» deysiz. Aniq vaqt aytmaysiz. Lekin bu safar kelajak zamonidan foydalanasiz.`},
+{title:'Qahramonlikdan kichikroq ish',label:'Ko‘prik boshqaruvi',text:`Bahrom: «Men shu yerda qolaman. Sen tepaga chiq», deydi. Uning ovozi juda xotirjam. Bu charchagan odamning o‘zini hisobdan chiqarish usuli ekanini endi taniysiz.
+
+Pultdagi yo‘riqnoma buning zarur emasligini ko‘rsatadi. Zaxira tarmog‘i yoqilsa, panelni odam bosib turishi shart emas. Hamidning davrida bu tarmoq bo‘lmagan; keyin qurilgan. Bahrom esa o‘sha eski qoidani boshida olib yuribdi.
+
+«Siz qurbon bo‘lishingiz shart emas», deysiz.
+
+«Yoshlar shunaqa deydi. Keyin zinapoyani o‘zlari ko‘tarishadi.»
+
+Siz yelkangizni uning qo‘li ostiga qo‘yasiz. Zinapoya og‘ir. Qariya ham yengil emas. O‘rtada u «Men ketishdan oldin bir narsani aytmoqchi edim» deydi. Siz to‘xtaysiz. «Uyda gazni o‘chirganmikanman?»
+
+«Bahrom aka!»
+
+«O‘chirganman. Seni tekshirdim.»
+
+Kulgi bu safar asabiy emas. Qo‘lingizda hali tirik odam bor. Uni ko‘tarib borish biror buyuk belgidan ko‘ra ko‘proq ma’noga ega. Panelga kelganda uchta holatni tekshiring: odamlar — ha, signal — yo‘q, zaxira — ha.`},
+{title:'Tiriklar tomonga',label:'Uch tarmoqli elektr paneli',puzzle:6,text:`Ko‘prik chiroqlari birma-bir yonadi. Tantanali emas — ayrim lampalar hali ham lipillaydi. Haqiqiy chiqish yo‘li mukammal bo‘lishi shart emas.
+
+Bahrom quruqlik eshigiga yetadi. Sizga qaytib qarab, qo‘l radiosini ko‘taradi. «Endi shunchaki qaytishingni kutaman. Topishmoq ham bermayman. Qariganimda rivojlanib qoldim.»
+
+Siz kulasiz. Keyin mayoq zinapoyasini yolg‘iz ko‘tarilasiz. Yolg‘iz yurish bilan yolg‘iz qolish farqli narsalar ekan. Pastda bir inson sizning kelishingizni kutmoqda. Uyda yana biri.
+
+Katta Mara ovozi yaqin: «Men chiroqni qo‘yib yuborsam, sen bolaligingni yo‘qotmaysan. Faqat meni u yerda qamab qo‘yishni to‘xtatasan.»
+
+Siz daftardagi xotiralarni tekshirasiz. Kamida beshta shaxsiy xotira, rost aytilgan ikki og‘ir gap va Bahromni tanlagan bo‘lsangiz, signalni xotiradan ajratishning uchinchi yo‘li ochiladi. Bo‘lmasa ham, uni o‘chirish va uyga qaytish mumkin. To‘g‘ri xayrlashish yomon yakun emas.`}
+]},
+{title:'So‘nggi signal',place:'MAYOQNING YUQORI SAHNI',mood:[37,42,39],intro:'Bahrom: «Aleks. Men shu yerdaman. Javob berishing shart emas. Faqat bilib qo‘y.»',memory:{title:'Aytib tugatilmagan hikoya',text:`Yuqori zinapoyada Mara qoldirgan kichik daftar bor. Birinchi jumla: «Bir kuni ikki xil etik kiygan qiz dengiz bilan urishib qolibdi.» Hikoya bolalarcha boshlangan, keyingi betlarda esa yozuv ulg‘aygan.
+
+Qiz dengizga: «Sen hamma narsani qaytarishing shart emas. Ba’zilarini ehtiyotlab saqla», debdi. Dengiz javob bermabdi. U dengiz ekan, javob berish uning ishi emas ekan. Qiz o‘ziga uy quribdi. Ichida suv emas, deraza bo‘lsin debdi.
+
+Oxirgi bet tugamagan: «Akam qaytsa, undan...»
+
+Siz qalamni ko‘tarib, gapni uning o‘rniga tugatmoqchi bo‘lasiz. Keyin to‘xtaysiz. U sizdan nimani so‘ramoqchi bo‘lganini bilmaysiz. Bilmaslikka chidash ham sevishning bir qismi ekan.
+
+O‘z betingizga yozasiz: «Men qaytdim. Hammasini bilmadim. Lekin seni faqat yo‘qolgan kuning bilan eslamayman.» Ikki daftarni bir-biriga yopishtirmaysiz. Uning hikoyasi uningniki. Sizniki esa davom etadi. Tashqarida tun hali tugamagan. Ammo endi ertalab bo‘lishi mumkinligini bilasiz.`},nodes:[
+{title:'Ikki Mara',label:'So‘nggi qabul qilgich',text:`Pult oldida ikkita ovoz turibdi. Biri mukammal to‘qqiz yosh. Har bir gapi siz eshitishni xohlagan so‘z. «Sening aybing emas. Seni hech qachon yomon ko‘rmaganman. Hammasi avvalgidek bo‘ladi.»
+
+Ikkinchisi ovozini tekis tutolmaydi. «Aybing yo‘q deyolmayman. Hammamiz bir-birimizni ranjitganmiz. Lekin shu sababli qolgan umringni shu xonaga berishingni xohlamayman.»
+
+Birinchisi yig‘lamaydi. Ikkinchisi yig‘lab ham yubormaydi. U faqat gap orasida nafas oladi. Bahromning choy puflagani, onangizning qoshiq tovushi, otangizning xato imlosi. Hayot o‘zini mayda nomukammalliklar bilan bildirgan ekan.
+
+Siz uzatgichni savol bilan tekshirishingiz mumkin. Undan sir emas, munosabat so‘rang: Mara sizdan nimani xohlaydi? Qamalib qolgan xotira sizni yonida ushlaydi. Sizni yaxshi ko‘rgan inson esa o‘zi borolmasa ham chiqish eshigini ko‘rsatadi.
+
+Ammo siz eshitishni xohlagan javobni haqiqiy deb tanlab qo‘ymasligingiz kerak. Shu farqni anglash oxirgi sinov.`},
+{title:'Aka bo‘lish uchun',label:'Bolalar qo‘l izi',text:`Pultda kichik qo‘l izi qolgan. Siz kaftingizni yoniga qo‘yasiz. O‘n bir yil oldingi qo‘lingiz ham endi bu izga sig‘maydi. Vaqt singlingiz uchun bir joyda turmagan; u faqat siz eslaydigan suratda to‘xtagan.
+
+«Men senga velosiped o‘rgatishim kerak edi», deysiz.
+
+«O‘rgatgansan. Men devorga borib urilganman.»
+
+«Keyin?»
+
+«Sen ham urilgansan. Mendan balandroq ovozda.»
+
+Siz kulasiz. Shundan keyin yig‘i keladi. Kulganingiz uchun emas, shu ikki bolaning bir kun bor bo‘lganini butun tanangiz bilan eslaganingiz uchun.
+
+Mara: «Meni yaxshi aka bo‘lganingni isbotlash uchun ishlatma. Meni singling bo‘lganim uchun esla.»
+
+Siz bu gapni daftar qilolmaysiz. Bir oz ushlab turishingiz kerak. Qalamni qo‘yib, pultga suyanasiz. Bu yerda vaqt cheklovi yo‘q. Keyingi sahna siz tayyor bo‘lganingizda boshlanadi.
+
+Pastdan Bahromning juda sekin yo‘tali keladi. Siz qaytishingiz kerak bo‘lgan dunyo hali ham mayda tovushlar chiqaryapti.`},
+{title:'Oxirgi tekshiruv',label:'Haqiqiy ovozni ajratgich',text:`Uzatgich sizga juda katta savollar bermoqchi: hayotning ma’nosi, sevgi nimadan iborat, kim aybdor. Siz esa uchta kichik, tekshiriladigan narsani tanlaysiz.
+
+Mara issiq sutni yoqtirmagan. Hamma narsasi mukammal bo‘lgan uy uning uyi emas. Otangiz eshikni qisqa–uzun–qisqa taqillatgan. Hammaning sizni yaxshi ko‘rishi hech qachon sizni ushlab turish huquqini bermagan.
+
+Ajratgich shu uch asosni so‘raydi. To‘g‘ri javoblar quyidagilarni eslatadi: qizcha sut o‘rniga suv ichgan; uyga qaytish kodi qisqa–uzun–qisqa bo‘lgan; haqiqiy Mara sizning yashab qaytishingizni xohlaydi.
+
+Bahrom eslatadi: «Bilmaganingni daftardan qara. Imtihon emas. Men o‘zim ham tug‘ilgan yilimni ba’zan hisoblab topaman.»
+
+Siz oxirgi marta oynadan dengizga qaraysiz. U hech narsani tushuntirmaydi. Lekin endi siz har to‘lqinda javob qidirmayapsiz. Ba’zi savollar javobsiz qoladi. Hayot shu joyda tugamaydi.`},
+{title:'Kimni uyga olib ketasiz?',label:'Mayoqning asosiy uzatgichi',puzzle:7,text:`Ajratgich ikki ovozni bir-biridan ajratadi. Kichkina Mara endi sizning so‘zlaringizni takrorlamaydi. U bir xil jumlani aytadi: «Qol. Qol. Qol.» Tizimning iltimosi shu qadar sodda ekan.
+
+Katta Mara deraza tomon qaraydi. Siz uni aniq ko‘rmaysiz. Balki u aksdir, balki signalning ichida saqlanib qolgan haqiqiy ong. Barcha sir ochilmaydi. Lekin u sizdan qolishni so‘ramayotganini bilasiz.
+
+Pultdagi birinchi tugma signalni uzadi. Mara nihoyat dam oladi, siz xotiralar bilan qaytasiz. Ikkinchisi ovozni uyga olib chiqadi. Chiroyli va’da, qimmat narx. Uchinchi yo‘l ochilgan bo‘lsa, shaxsiy esdaliklarni aksdan ajratib, Maraning o‘zi tanlagan so‘nggi yozuvini saqlash mumkin. Bu tiriltirish emas. Uning ovozini qamoqxona qilmasdan eslab qolish.
+
+Bahrom: «Nimani tanlasang ham, tiriklar tomonidagi eshikni ko‘ryapsanmi?» deydi.
+
+Siz ko‘rasiz. O‘n bir yildan beri birinchi marta, qaytish yo‘li ham vazifa kabi muhim. Endi pult sizni kutadi.`}
+]}
+];
+const endings={release:{tag:'01 / TONG',title:'Bo‘sh stulni yig‘ishtirmang.',text:`Siz signalni uzasiz. Chiroq o‘chadi. Mara bir zum: «Men seni kutganim uchun emas, sen kelganing uchun xursandman», deydi. Keyin oddiy jimlik. Hech kim ichkaridan yana gapirmaydi.
+
+Quruqlik eshigida Bahrom turibdi. Siz uni mashinaga o‘tqazasiz. «Choy hali kuchdami?» deb so‘raysiz. U «Boshqa rejam yo‘q edi», deydi. Siz yo‘lda yig‘laysiz. Bahrom derazadan tashqariga qaraydi. Hamma ham sizni yupatish uchun yuzingizga qarashi shart emas.
+
+Onangiz eshikni ochadi. Siz izohni tayyorlab kelgansiz. U esa qo‘llaringizni ushlab: «Sovqotibsan», deydi. Nonushtada bir marta Mara haqida kulib gapirasiz. Keyin ikkingiz ham yig‘laysiz. Ovqat soviydi. Uni keyin isitasizlar.
+
+Mara qaytmadi. Otangiz qaytmadi. Bu jumlalarni endi yashirmaysiz. Ammo siz qaytdingiz. Bir kuni velosiped olasiz. Bir kuni dengizga yana borasiz. Hammasi tuzalmaydi. Hayotingiz faqat buzilgan joylardan ham iborat bo‘lmaydi.
+
+Daftarning oxirgi beti: «Bugun onamga qo‘ng‘iroq qilish uchun sabab izlamadim.»`},answer:{tag:'02 / UYGA KELGAN OVOZ',title:'Hech kim ketmaydigan uy.',text:`Siz uzatish tugmasini bosasiz. «Ketmayman, Mara.» Mukammal kichkina ovoz «Bilardim» deydi. U xursand emas. Faqat aloqaning uzilmaganini tasdiqlaydi.
+
+Ertalab mashinada hech kim yoningizda o‘tirmaydi. Bahromning radiosi jim. Uning ismini aytmoqchi bo‘lasiz, xayolingizda birinchi harfi ham yo‘q. Uyga kirganingizda stolda to‘rtta piyola bor. Hammasiga issiq sut quyilgan.
+
+Onangiz kuladi. Otangiz gazeta o‘qiydi. Mara ikki xil etikda yugurib keladi. Siz juda baxtlisiz. Shu qadar baxtlisizki, onangiz tug‘ilgan kunining qachonligini so‘raganingizda hech kimning javob bermaganini payqamaysiz.
+
+Mara maktabga boraman deydi. Soat 03:17. Otangiz «Ishga kech qoldim» deydi. Soat 03:17. Siz sut ichasiz. Soat 03:17. Uydagi hech kim eshikdan chiqa olmaydi, lekin hech kim chiqishni ham xohlamaydi.
+
+Cho‘ntagingizdagi daftar yopilmagan. Birinchi betida notanish ismlar bor: Hamid. Saida. Bahrom. Islom. Aleks. Siz ularni tashlamaysiz. Nega kerakligini bilmasangiz ham, bir oz ushlab turasiz.
+
+Sohilda radio yana yoqiladi. Bu safar u sizni sog‘ingan odamning ovozini qidiradi. Mukammal uyda hech kim yo‘qolmaydi. Chunki hech kim yashash uchun tashqariga chiqmaydi.`},hope:{tag:'03 / DAVOMI BOR',title:'Ovoz emas, inson qoladi.',text:`Siz ajratgichga xotiralarni ketma-ket uzatasiz: ikki xil etik, kartoshka qutisi, otangizning qo‘llari, Bahromning yaroqsiz latifasi. Signal yo‘qolganlarni egallay olmaydi, chunki siz ularni birgina fojiali ovozga sig‘dirmay qo‘ydingiz.
+
+Mara pultdan qo‘lini oladi. Tirik tanasi qaytmaydi. O‘n bir yil bekor bo‘lmaydi. Lekin bir dona, qayta yozib bo‘lmaydigan kasseta qoladi. Uning oxirgi jumlasini uzatgich emas, Mara tanlaydi: «Akamga ayting, men faqat yo‘qolgan qiz emasdim. Men ko‘k bo‘yoq olmoqchi edim.»
+
+Quruqlikda Bahrom kasseta g‘ilofini ushlab turadi. «Nima qilamiz?» deydi. Siz «Avval mushukni ovqatlantiramiz» deysiz. U shunday qattiq kuladiki, yo‘tali tutib qoladi. Siz qo‘rqasiz. U qo‘lingizni siqadi. «Hali navbatim tugamagan.»
+
+Uyda onangizga hammasini aytasiz. Islomning suratini onasiga eltish rejasini tuzasizlar. Otangizning yozuvini eshitasizlar. Mara uchun ko‘k rangli kichik javon yasaysizlar. Uni har kuni ziyorat qilish shart emas. Xonada u bilan birga boshqa narsalar ham turadi: xarid ro‘yxati, kitob, yangi velosiped kaliti.
+
+Bir yil o‘tib dengizga kunduz kuni kelasiz. Bahrom termos olib kelgan. Choyi achchiq. «Bu safar shakarni uyda unutdim», deydi. Siz uning hazil qilmayotganini bilib, yana kulasiz.
+
+Mara haqidagi hikoyani kimdir so‘raganda endi «U yo‘qolgan» deb boshlamaysiz. «U ikki xil etik kiyadigan qiz edi», deysiz. Hikoya shu yerdan boshlansa, davom etishi mumkin.`}};
+const routes=[{x:-7,z:16},{x:9,z:38},{x:-8,z:62},{x:0,z:86}];
+let menuOpen=true;
+let W=800,H=480,F=480,last=0,time=0,elapsed=0,playing=false,started=false,ended='',act=0,step=0,px=0,pz=4,yaw=0,pitch=0,bob=0,light=true,battery=100,mapOn=true,hudVisible=true,touchSensitivity=1,touchScale=1,touchOpacity=.82,touchSwap=false,near=null,subUntil=0,pressure=0,view='title',quiet=matchMedia('(prefers-reduced-motion: reduce)').matches,lowThreat=false;
+const keys={},faces=[],colliders=[],objects=[],records=[],memories=new Set(),flags={honest:0,care:false,warm:0};let seed=49,audio=null,master=null,soundOn=false,footAt=0;
+function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}function resize(){W=Math.max(320,Math.min(1280,Math.round(innerWidth)));H=Math.max(240,Math.round(W*innerHeight/innerWidth));canvas.width=W;canvas.height=H;F=W*.77}addEventListener('resize',resize);resize();
+function poly(p,c){faces.push({p,c})}function box(x,y,z,w,h,d,c,solid=false){let a=x-w/2,b=x+w/2,f=z-d/2,g=z+d/2;poly([[a,y,f],[b,y,f],[b,y+h,f],[a,y+h,f]],c.map(v=>v*.8));poly([[b,y,g],[a,y,g],[a,y+h,g],[b,y+h,g]],c);poly([[a,y,g],[a,y,f],[a,y+h,f],[a,y+h,g]],c.map(v=>v*.68));poly([[b,y,f],[b,y,g],[b,y+h,g],[b,y+h,f]],c.map(v=>v*.9));poly([[a,y+h,f],[b,y+h,f],[b,y+h,g],[a,y+h,g]],c.map(v=>v*1.08));if(solid)colliders.push({x,z,w:w/2+.3,d:d/2+.3})}
+function tree(x,z,h,r){box(x,0,z,.28,h*.6,.28,[54,49,40]);for(let l=0;l<3;l++){let y=h*(.2+l*.18),rr=r*(1-l*.22),verts=[];for(let i=0;i<5;i++){let a=i*Math.PI*2/5;verts.push([x+Math.cos(a)*rr,y,z+Math.sin(a)*rr])}for(let i=0;i<5;i++)poly([verts[i],verts[(i+1)%5],[x,y+h*.57,z]],[28+l*5+i,42+l*4+i,34+l*3+i])}colliders.push({x,z,w:.45,d:.45})}
+function hut(x,z,w=6,d=5){box(x,0,z,w,3,d,act===4?[100,82,58]:[70,77,65],true);poly([[x-w/2-.3,3,z-d/2-.3],[x,4.2,z-d/2-.3],[x,4.2,z+d/2+.3],[x-w/2-.3,3,z+d/2+.3]],[43,53,45]);poly([[x+w/2+.3,3,z-d/2-.3],[x,4.2,z-d/2-.3],[x,4.2,z+d/2+.3],[x+w/2+.3,3,z+d/2+.3]],[57,62,49]);box(x+.9,1.2,z-d/2-.03,1,.8,.05,[158,146,90]);box(x-1,0,z-d/2-.04,.9,2.2,.05,[33,44,38])}
+function pathX(z){const p=[{x:0,z:0},...routes,{x:0,z:99}];for(let i=1;i<p.length;i++)if(z<=p[i].z){let t=(z-p[i-1].z)/(p[i].z-p[i-1].z);return p[i-1].x*(1-t)+p[i].x*t}return 0}
+function buildWorld(){faces.length=0;colliders.length=0;objects.length=0;seed=149+act*71;for(let z=-8;z<104;z+=5)for(let x=-30;x<30;x+=5){let path=Math.abs(x+2.5-pathX(z+2.5))<5.5,c=path?[72,70,54]:[34+rnd()*10,45+rnd()*9,36+rnd()*6];if(act===3&&x>17)c=[26,47,52];if(act===4)c=path?[100,82,58]:[58,58,43];poly([[x,0,z],[x+5,0,z],[x+5,0,z+5]],c);poly([[x,0,z],[x+5,0,z+5],[x,0,z+5]],c.map(v=>v*.92));if(Math.abs(x)>16&&rnd()>.28&&!(act===3&&x>15))tree(x+rnd()*3,z+rnd()*3,5+rnd()*7,1.6+rnd()*1.8)}
+// Distant transmission poles, shoreline rocks, and warm practical lamps.
+for(let z=8;z<100;z+=20){let x=-24;box(x,0,z,.22,7,.22,[49,55,53]);box(x,6.1,z,3.3,.16,.18,[66,71,64]);for(let side of [-1,1]){let wx=x+side*1.25;box(wx,6.1,z,.13,.5,.13,[111,120,111]);if(z<88)poly([[wx,6.4,z],[wx+.035,6.4,z],[wx+.035,6.4,z+20],[wx,6.4,z+20]],[48,57,57])}}
+for(let i=0;i<22;i++){let z=4+i*4.5,x=20+rnd()*5,r=.5+rnd()*1.3;poly([[x-r,0,z-r],[x+r,0,z-r],[x+r*.6,.9+r*.4,z],[x-r*.7,.6,z+r]],[66,76,77]);poly([[x+r,0,z-r],[x+r,0,z+r],[x-r*.7,.6,z+r],[x+r*.6,.9+r*.4,z]],[51,65,67])}
+for(let i=0;i<4;i++){let s=routes[i];box(s.x-3,0,s.z-1,.1,3,.1,[66,65,52]);box(s.x-2.65,2.9,s.z-1,.8,.12,.3,[56,62,57]);box(s.x-2.4,2.65,s.z-1,.28,.25,.24,[195,160,100]);if(act===2||act===4){box(s.x-5,0,s.z+2,1.5,4,2,[68,75,62],true);box(s.x+5,0,s.z+2,1.5,4,2,[68,75,62],true)}else hut(s.x,s.z+6,5+(i%2),4);box(s.x,.05,s.z,.9,.8,.6,[57,70,58]);box(s.x,.85,s.z,.75,.22,.5,[123,133,99]);box(s.x+.3,1,s.z,.025,.75,.025,[133,140,113]);objects.push({x:s.x,z:s.z,i,name:chapters[act].nodes[i].label})}
+const mx=act%2? -14:14,mz=49;box(mx,0,mz,1.6,.5,1,[93,73,51]);box(mx,.5,mz,.5,.14,.5,[170,128,89]);objects.push({x:mx,z:mz,i:4,name:'Shaxsiy xotira: '+chapters[act].memory.title});
+for(let z=8;z<95;z+=12){let x=pathX(z)-3.8;box(x,0,z,.15,1.7,.15,[83,78,54]);box(x,1.15,z,.65,.32,.1,[118,125,86])}
+for(let i=0;i<6;i++){let a=i*Math.PI/3,b=(i+1)*Math.PI/3;poly([[Math.cos(a)*3,0,98+Math.sin(a)*3],[Math.cos(b)*3,0,98+Math.sin(b)*3],[Math.cos(b)*1.7,17,98+Math.sin(b)*1.7],[Math.cos(a)*1.7,17,98+Math.sin(a)*1.7]],[104-i*5,111-i*5,98-i*4])}box(0,17,98,4,.6,4,[44,54,47]);box(0,17.6,98,3,2,3,act>=6?[181,155,92]:[128,137,107]);box(0,19.6,98,4,.4,4,[44,54,47]);
+if(act===3){box(22,0,48,4,.25,95,[72,67,51]);for(let z=7;z<94;z+=7)box(18,0,z,.15,1,.15,[85,81,65]);box(12,.2,70,2,.8,6,[121,54,39],true)}if(act===4){for(let i=0;i<4;i++)box((i%2?1:-1)*2,0,43+Math.floor(i/2)*4,.8,.7,.8,[87,66,48]);box(0,.7,45,5,.15,5,[120,103,76]);box(1,.85,45,.2,.25,.2,[189,182,148])}if(act===1)box(15,0,65,5,2.6,6,[71,79,64],true);if(act===6){for(let z=10;z<89;z+=15){box(-12,0,z,.4,5,.4,[64,69,57]);box(12,0,z,.4,5,.4,[64,69,57]);box(0,5,z,24,.35,.35,[64,69,57])}}}
+function project(v,eye,cy,sy){let x=v[0]-px,z=v[2]-pz;return[x*cy-z*sy,v[1]-eye,x*sy+z*cy]}
+function render(){const sky=chapters[act].mood,eye=1.65+(quiet?0:Math.sin(bob)*.03),cy=Math.cos(yaw),sy=Math.sin(yaw),horizon=Math.max(H*.06,Math.min(H*.94,H*.48+Math.tan(pitch)*F));ctx.fillStyle='rgb('+sky+')';ctx.fillRect(0,0,W,H);ctx.fillStyle='rgb('+sky.map(v=>v*.95)+')';ctx.fillRect(0,horizon,W,H-horizon);
+// Clouded moon and the narrow, mist-covered sea beyond the trees.
+const moonX=W*.76-Math.sin(yaw)*W*.15,moonY=H*.18;let halo=ctx.createRadialGradient(moonX,moonY,2,moonX,moonY,H*.22);halo.addColorStop(0,'#b5c9c125');halo.addColorStop(1,'#b5c9c100');ctx.fillStyle=halo;ctx.fillRect(0,0,W,horizon);ctx.fillStyle='#bcc9bd55';ctx.beginPath();ctx.arc(moonX,moonY,Math.max(4,H*.018),0,Math.PI*2);ctx.fill();ctx.fillStyle='#9cb7b012';ctx.fillRect(0,horizon-2,W,3);let sorted=[];
+for(const face of faces){let vs=face.p.map(v=>project(v,eye,cy,sy));if(vs.every(v=>v[2]<.18)||vs.every(v=>v[2]>60))continue;let clipped=[];for(let i=0;i<vs.length;i++){let a=vs[i],b=vs[(i+1)%vs.length],ia=a[2]>=.18,ib=b[2]>=.18;if(ia)clipped.push(a);if(ia!==ib){let t=(.18-a[2])/(b[2]-a[2]);clipped.push([a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,.18])}}if(clipped.length<3)continue;let p=clipped.map(v=>[W/2+v[0]/v[2]*F,horizon-v[1]/v[2]*F]);if(p.every(v=>v[0]<0)||p.every(v=>v[0]>W)||p.every(v=>v[1]<0)||p.every(v=>v[1]>H))continue;sorted.push({p,d:vs.reduce((s,v)=>s+v[2],0)/vs.length,c:face.c,x:vs.reduce((s,v)=>s+v[0],0)/vs.length})}sorted.sort((a,b)=>b.d-a.d);
+for(const q of sorted){let fog=Math.min(.97,Math.max(0,(q.d-4)/52)),beam=light?Math.max(0,1-Math.abs(q.x)/Math.max(1,q.d*.55))*Math.max(0,1-q.d/25)*.9:0,c=q.c.map((v,i)=>Math.round(Math.max(0,Math.min(235,v*(.72+beam)*(1-fog)+sky[i]*fog))));ctx.fillStyle='rgb('+c+')';ctx.beginPath();q.p.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fill()}
+for(const s of objects){let v=project([s.x,1.2,s.z-.3],eye,cy,sy);if(v[2]>.2&&v[2]<42){let x=W/2+v[0]/v[2]*F,y=horizon-v[1]/v[2]*F;ctx.fillStyle=s.i===4?(memories.has(act)?'#6f8d68':'#efb18a'):s.i<step?'#7ba073':s.i===step?'#ece4a5':'#8e6d58';ctx.fillRect(x-2,y-2,4,4)}}
+if(act>=2&&playing&&Math.sin(time*.22)>.87){let v=project([px+Math.sin(yaw)*22+Math.cos(yaw)*7,0,pz+Math.cos(yaw)*22-Math.sin(yaw)*7],eye,cy,sy);if(v[2]>0){let x=W/2+v[0]/v[2]*F,y=horizon-v[1]/v[2]*F;ctx.fillStyle='#15231f';ctx.beginPath();ctx.moveTo(x-4,y);ctx.lineTo(x-3,y-F*2.5/v[2]);ctx.lineTo(x+2,y-F*2.7/v[2]);ctx.lineTo(x+6,y);ctx.fill()}}
+// Slow layers of sea mist; no sudden flashes or strobing.
+for(let layer=0;layer<3;layer++){let fy=H*(.47+layer*.08),shift=quiet?0:Math.sin(time*.09+layer)*H*.018;let mist=ctx.createLinearGradient(0,fy-18+shift,0,fy+35+shift);mist.addColorStop(0,'#a8c7c000');mist.addColorStop(.5,act===4?'#d4b98909':'#a8c7c009');mist.addColorStop(1,'#a8c7c000');ctx.fillStyle=mist;ctx.fillRect(0,fy-18+shift,W,53)}
+if(act>=6){let sweep=quiet?.8:.65+Math.sin(time*.16)*.25;ctx.fillStyle='#e0cd9c07';ctx.beginPath();ctx.moveTo(W*.5,H*.14);ctx.lineTo(W*sweep,-H*.1);ctx.lineTo(W*(sweep+.16),-H*.1);ctx.closePath();ctx.fill()}
+if(!started||menuOpen){let bx=W*.78,by=H*.28,ang=time*.075;ctx.save();ctx.globalCompositeOperation='screen';ctx.fillStyle='#d9b77c0b';ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(bx+Math.cos(ang-.11)*W*.85,by+Math.sin(ang-.11)*H*.82);ctx.lineTo(bx+Math.cos(ang+.11)*W*.85,by+Math.sin(ang+.11)*H*.82);ctx.closePath();ctx.fill();ctx.fillStyle='#101c1d';ctx.beginPath();ctx.moveTo(bx-12,by+72);ctx.lineTo(bx-7,by-7);ctx.lineTo(bx+7,by-7);ctx.lineTo(bx+12,by+72);ctx.closePath();ctx.fill();let beacon=ctx.createRadialGradient(bx,by,1,bx,by,28);beacon.addColorStop(0,'#f5dfaa88');beacon.addColorStop(1,'#d9b77c00');ctx.fillStyle=beacon;ctx.fillRect(bx-30,by-30,60,60);ctx.restore()}if(light&&started){ctx.save();ctx.globalCompositeOperation='screen';let cone=ctx.createRadialGradient(W*.5,H*.61,2,W*.5,H*.61,H*.44);cone.addColorStop(0,'#d9c99118');cone.addColorStop(.45,'#d9c9910b');cone.addColorStop(1,'#d9c99100');ctx.fillStyle=cone;ctx.fillRect(0,H*.2,W,H*.8);ctx.restore()}let vign=ctx.createRadialGradient(W*.5,H*.5,W*.12,W*.5,H*.5,W*.72);vign.addColorStop(0,'#020c0d00');vign.addColorStop(1,light?'#02090bd9':'#02090bea');ctx.fillStyle=vign;ctx.fillRect(0,0,W,H);if(!quiet&&act!==4){ctx.strokeStyle='#b8c9bd22';for(let i=0;i<32;i++){let x=(i*127+Math.floor(time*22)*2)%W,y=(i*89+time*130)%H;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-2,y+7);ctx.stroke()}}}
+function clearKeys(){Object.keys(keys).forEach(k=>keys[k]=false);dragging=false}
+function show(tag,title,body,buttons,kind='story'){playing=false;clearKeys();view=kind;document.body.dataset.view=kind;$('modalTag').textContent=tag;$('modalTitle').textContent=title;$('modalBody').textContent=body;$('modalBody').classList.toggle('hidden',!body);$('extras').replaceChildren();$('journalText').classList.add('hidden');$('reading').textContent='';$('modalActions').replaceChildren();buttons.forEach(([label,fn,primary])=>{let b=document.createElement('button');b.textContent=label;if(primary)b.className='primary';b.onclick=fn;$('modalActions').appendChild(b)});$('overlay').classList.remove('hidden');$('overlay').querySelector('.panel').scrollTop=0;setTimeout(()=>{$('modalActions').querySelector('button')?.focus({preventScroll:true})},30)}
+function syncMenu(){const available=started&&!ended;$('continueGame').disabled=!available;$('continueHint').textContent=available?'Bob '+(act+1)+' / '+chapters[act].title+' · '+clock():(ended?'Safar yakunlandi · yangi hikoya boshlang':'Hali safar boshlanmadi');$('startHint').textContent=available?'Yangi safar · joriy taraqqiyotni almashtiradi':'Yangi safar · birinchi bobdan'}
+function resume(){if(ended&&!menuOpen)return;view=menuOpen?'title':'world';document.body.dataset.view=view;$('overlay').classList.add('hidden');playing=started&&!ended&&!menuOpen;$('title').classList.toggle('hidden',!menuOpen);['hud','pause','touchMove','touchLook'].forEach(id=>$(id).classList.toggle('hidden',!playing));if(menuOpen){syncMenu();$('continueGame').disabled?$('start').focus({preventScroll:true}):$('continueGame').focus({preventScroll:true})}clearKeys();if(playing)canvas.focus?.({preventScroll:true})}
+function mainMenu(){menuOpen=true;resume()}
+function applyTouchSettings(){document.documentElement.style.setProperty('--touch-scale',touchScale);document.documentElement.style.setProperty('--touch-opacity',touchOpacity);$('touchMove').style.left=touchSwap?'auto':'18px';$('touchMove').style.right=touchSwap?'18px':'auto';$('touchLook').style.right=touchSwap?'auto':'18px';$('touchLook').style.left=touchSwap?'18px':'auto'}function settingsMenu(){show('09 / QABUL QILGICHNI SOZLASH','Har ovoz ham chaqiriq emas.','Sozlamalar shu ochiq oynada amal qiladi. Ularni o‘zgartirish hikoyangizni yoki tanlovlaringizni tozalamaydi. Ovoz ixtiyoriy; barcha dialoglar matnli.',[['Ovoz: '+(soundOn?'yoqilgan':'o‘chirilgan'),toggleAudio],['Harakat: '+(quiet?'sokin':'odatdagi'),()=>{quiet=!quiet;settingsMenu()}],['Xavf: '+(lowThreat?'yengil':'odatdagi'),()=>{lowThreat=!lowThreat;settingsMenu()}],['Xarita: '+(mapOn?'ko‘rinadi':'yashirilgan'),()=>{toggleMap();settingsMenu()}],['HUD: '+(hudVisible?'to‘liq':'soddalashtirilgan'),()=>{hudVisible=!hudVisible;updateHUD();settingsMenu()}],['Sensor sezgirligi: '+touchSensitivity.toFixed(1)+'×',()=>{touchSensitivity=touchSensitivity>=1.5?0.7:touchSensitivity+0.4;settingsMenu()}],['Tugma o‘lchami: '+Math.round(touchScale*100)+'%',()=>{touchScale=touchScale>=1.2?0.8:touchScale+0.2;applyTouchSettings();settingsMenu()}],['Tugma xiraligi: '+Math.round(touchOpacity*100)+'%',()=>{touchOpacity=touchOpacity>=.95?.5:touchOpacity+.15;applyTouchSettings();settingsMenu()}],['Joystik tomoni: '+(touchSwap?'o‘ng':'chap'),()=>{touchSwap=!touchSwap;applyTouchSettings();settingsMenu()}],['← Qaytish',resume,true]],'settings');$('modalActions').firstElementChild.id='settingSound';const note=document.createElement('div');note.className='setting-note';note.textContent='SOKIN HARAKAT — yurishdagi tebranish va yomg‘ir chiziqlari o‘chadi, tuman harakati kamayadi. YENGIL XAVF — tuman ichida chiroq yoqilganda soya sekinroq yaqinlashadi.';$('extras').append(note)}
+function aboutStory(){show('SO‘NGGI SIGNAL / HIKOYA HAQIDA','Dengiz esidan chiqarmaydi.','1996-yil. Shimoliy sohil. O‘n bir yil sukut saqlagan radiodan singlingizning ovozi keladi. Aleks sifatida eski stansiyaga qaytasiz. Hamrohingiz — hazili o‘tkir, choyi doim sovib qoladigan sobiq qorovul Bahrom.\n\nBu o‘yin faqat sharpalar haqida emas: aytilmay qolgan gaplar, oilaning oddiy kulgili kunlari va yo‘qotishdan keyin yashashni davom ettirish haqida.\n\n8 bob · 32 asosiy sahna · 8 boshqotirma · 8 shaxsiy xotira · 3 yakun. Taxminan 35–50 daqiqaga mo‘ljallangan; haqiqiy vaqt o‘qish va izlanishga bog‘liq.\n\nQorong‘i muhit, oila a’zosini yo‘qotish, qayg‘u va aybdorlik mavzulari bor. Majburiy kutish yoki keskin chaqnash yo‘q. Matn o‘qiyotganda xavf to‘xtaydi. Oynani yopsangiz, safar tiklanmaydi.',[['← Menyuga qaytish',resume,true]],'about')}
+function readScene(tag,title,text,done,choices){let paras=text.split('\n\n'),pages=[];for(let i=0;i<paras.length;i+=2)pages.push(paras.slice(i,i+2).join('\n\n'));let page=0;function draw(){let btns=[];if(page>0)btns.push(['← Oldingi bet',()=>{page--;draw()}]);if(page<pages.length-1)btns.push(['Davomini o‘qish →',()=>{page++;draw()},true]);else if(choices)choices.forEach(([label,effect])=>btns.push([label,()=>{applyEffect(effect);done()},true]));else btns.push(['Davom etish →',done,true]);show(tag,title,pages[page],btns,'story');$('reading').textContent=(page+1)+' / '+pages.length+' bet · Shoshilmasdan o‘qing';}draw()}
+function subtitle(s,seconds=12){$('subtitle').textContent=s;$('subtitle').classList.remove('hidden');subUntil=time+seconds}
+function clock(){let n=Math.floor(elapsed);return Math.floor(n/60).toString().padStart(2,'0')+':'+(n%60).toString().padStart(2,'0')}
+function updateHUD(){let c=chapters[act],s=c.nodes[Math.min(step,3)];$('chapter').textContent=String(act+1).padStart(2,'0')+' / 08 · '+c.title.toUpperCase();$('task').textContent=s.label;$('inventory').textContent='XOTIRA '+memories.size+'/8 · CHIROQ '+(light?'YONIQ':'O‘CHIQ')+'\n'+clock()+' · NUQTA '+Math.min(32,act*4+step)+'/32';$('inventory').style.whiteSpace='pre-line';$('status').textContent=ended?'TUGADI':'ALOQA '+Math.round((act*4+step)/32*100)+'%';$('lightBtn').textContent=light?'F / CHIROQ: HA':'F / CHIROQ: YO‘Q';$('lightTouch').textContent=light?'F / CHIROQ: HA':'F / CHIROQ: YO‘Q';$('batteryLabel').textContent=Math.round(battery)+'%';$('batteryFill').style.width=battery+'%';$('battery').classList.toggle('low',battery<25);$('compassNeedle').style.transform='rotate('+(-yaw*180/Math.PI)+'deg)';$('headingLabel').textContent=String(((Math.round(yaw*180/Math.PI)%360)+360)%360).padStart(3,'0')+'°';$('hud').dataset.minimal=String(!hudVisible)}
+function applyEffect(e){if(e==='honest')flags.honest++;if(e==='care')flags.care=true;if(e==='leave')flags.care=false;if(e==='warm')flags.warm++}
+function addRecord(id,title,text){if(!records.some(r=>r.id===id))records.push({id,title,text})}
+function interact(){if(!playing||!near)return;let s=near,c=chapters[act];if(s.i===4){memories.add(act);addRecord('m'+act,'XOTIRA / '+c.memory.title,c.memory.text);updateHUD();tone(420,.35);readScene('IXTIYORIY XOTIRA · '+memories.size+'/8',c.memory.title,c.memory.text,resume);return}if(s.i>step){subtitle('Bahrom: «Avval sariq belgiga bor. Oldingi yozuvsiz bu panel xavfsiz ochilmaydi.»');return}let n=c.nodes[s.i];if(step>=4&&s.i===3){if(act===7)finalChoice();else nextChapter();return}if(s.i<step){readScene('QAYTA O‘QISH',n.title,n.text,resume);return}let finish=()=>{step++;updateHUD();if(step>=4){if(act===7)finalChoice();else nextChapter()}else{resume();subtitle(['Bahrom: «Yaxshi. Keyingi sariq chiroqqa qarab yur.»','Aleks: «Yozib oldim. Bu safar hech kimning ismi yo‘qolmaydi.»','Bahrom: «Yo‘lni xaritadan tekshir. Shoshilmaymiz.»'][step%3],8)}};let story=()=>{addRecord('s'+act+'-'+step,n.title,n.text);readScene('BOB '+(act+1)+' / '+c.place,n.title,n.text,finish,n.choice)};if(n.puzzle!==undefined)puzzle(n.puzzle,story);else story()}
+function nextChapter(){show('HUDUD YAKUNI · '+(act+1)+'/8',chapters[act].title,'Bu hududdagi asosiy yozuvlar topildi. Misrang belgi yonidagi shaxsiy xotirani ham tekshirishingiz mumkin. Keyingi hududga o‘tgach, bu yo‘l yopiladi.\n\nXotiralar qo‘shimcha oilaviy voqealarni va uchinchi yakun imkoniyatini ochadi. Majburiy kutish yo‘q; hikoyani o‘z tezligingizda davom ettiring.',[['Shaxsiy xotiraga qaytish',()=>{updateHUD();resume();subtitle('Misrang nuqta — '+chapters[act].memory.title+'. Uni olgach, oxirgi paneldan keyingi hududga o‘ting.')}],['Keyingi bob →',()=>{act++;step=0;px=0;pz=4;yaw=0;pitch=0;pressure=0;light=true;buildWorld();updateHUD();resume();subtitle(chapters[act].intro,16)},true]],'transition')}
+function puzzle(type,done){const specs=[{title:'Navbatchilar kanalini toping',body:'Chastotani sozlang. Antenna qaydida xavfsiz kanal ko‘rsatilgan. Ovozi tanish bo‘lgan har bir to‘lqin xavfsiz emas.',hint:'Navbatchilar kanali — 86.4 MHz. 88.8 tajriba uzatgichi.'},{title:'Tokni to‘g‘ri uzating',body:'Uch sug‘urtani texnik yo‘riqnomadagi ketma-ketlikda bosing. Xato ulansa, panel qayta boshlanadi.',hint:'Avval QIRG‘OQ → keyin ARXIV → oxirida MAYOQ.'},{title:'To‘rt raqamli sana',body:'Arxiv paroli falokat vaqti emas. Saidaning xati yozilgan kun va oy: KKOO shaklida.',hint:'Xat 7-noyabrda yozilgan. Kod: 0711.'},{title:'Uyga qaytish taqillatishi',body:'Otangizning uch tovushli eshik odatini takrorlang. Bu yerda vaqtni aniq ushlash shart emas; faqat tartib muhim.',hint:'QISQA → UZUN → QISQA.'},{title:'Voqealarni vaqtiga qaytaring',body:'Uch xotirani eng oldin bo‘lganidan eng keyingisigacha tanlang. Hammasi bitta fojiaga tegishli emas.',hint:'SHARF (1984) → QAYIQ (1985) → XAT (1990).'}, {title:'Unutilgan navbatchi',body:'Ismni kiriting. Arxiv bayonnomasida Hamid bilan birga imzo qo‘ygan inson. Bu texnik parol emas — eslab qolish.',hint:'Arxivdagi uchinchi navbatchining ismi ISLOM.'},{title:'Odamlarga chiqish oching',body:'Uch tarmoq holatini chizmaga muvofiq o‘rnating. Har bir tugma holatni almashtiradi.',hint:'ODAMLAR — YOQILGAN. SIGNAL — O‘CHIRILGAN. ZAXIRA — YOQILGAN.'},{title:'So‘z emas, munosabat',body:'Uch kichik savol. Javoblarni avvalgi voqealardan va daftardan tekshirish mumkin.',hint:'Suv → Qisqa–uzun–qisqa → Sening yashab qaytishingni.'}][type];let entry=[],correct=[1,0,2],vals=[false,true,false],question=0;
+function base(){show('AMALIY TEKSHIRUV · '+(type+1)+'/8',specs.title,specs.body,[['Keyinroq / orqaga',resume],['Ishora',()=>{$('puzzleHint').textContent=specs.hint}]],'puzzle');let panel=document.createElement('div');panel.className='puzzle';panel.id='puzzlePanel';let bank=document.createElement('div');bank.className='bank';bank.id='bank';let feedback=document.createElement('div');feedback.className='feedback';feedback.id='feedback';feedback.setAttribute('aria-live','polite');let hint=document.createElement('div');hint.className='hint';hint.id='puzzleHint';panel.append(bank,feedback,hint);$('extras').append(panel);return bank}
+function feedback(t){$('feedback').textContent=t;tone(95,.12)}function success(){tone(430,.35);done()}function button(parent,label,fn){let b=document.createElement('button');b.textContent=label;b.onclick=fn;parent.append(b);return b}let bank=base();
+if(type===0){let label=document.createElement('label');label.textContent='Chastota / 84.0 — 89.0 MHz';let input=document.createElement('input');input.type='range';input.min='840';input.max='890';input.step='1';input.value='851';input.setAttribute('aria-label','Radio chastotasi');let out=document.createElement('output');out.textContent='85.1 MHz';input.oninput=()=>out.textContent=(Number(input.value)/10).toFixed(1)+' MHz';label.append(input,out);$('puzzlePanel').prepend(label);button(bank,'ALOQANI TEKSHIRISH',()=>Number(input.value)===864?success():feedback('Bu navbatchilar kanali emas. Antenna qaydini yoki ishorani tekshiring.'))}
+if([1,3,4].includes(type)){let labels=type===1?['ARXIV','QIRG‘OQ','MAYOQ']:type===3?['QISQA','UZUN']:['QAYIQ / 1985','SHARF / 1984','XAT / 1990'];let target=type===3?[0,1,0]:correct;labels.forEach((label,i)=>button(bank,label,()=>{entry.push(i);if(entry[entry.length-1]!==target[entry.length-1]){entry=[];feedback('Ketma-ketlik mos kelmadi. Panel boshidan tayyor. Ishoradan foydalanishingiz mumkin.');return}if(entry.length===3)success();else $('feedback').textContent='Qabul qilindi: '+entry.map(j=>labels[j]).join(' → ')}));button(bank,'BOSHIDAN',()=>{entry=[];$('feedback').textContent='Tozalandi.'})}
+if(type===2||type===5){let input=document.createElement('input');input.type='text';input.maxLength=type===2?4:20;input.placeholder=type===2?'KKOO':'ISM';input.setAttribute('aria-label',type===2?'To‘rt raqamli sana':'Unutilgan navbatchi ismi');if(type===2)input.inputMode='numeric';$('puzzlePanel').prepend(input);let check=()=>{let val=input.value.trim().toUpperCase().replace(/\s/g,'');if(val===(type===2?'0711':'ISLOM'))success();else feedback('Qabul qilinmadi. Daftar yoki ishoradagi yozuvni tekshiring.')};button(bank,'TASDIQLASH',check);input.onkeydown=e=>{if(e.key==='Enter')check()}}
+if(type===6){let bs=[];function paint(){bs.forEach((b,i)=>{b.textContent=['ODAMLAR','SIGNAL','ZAXIRA'][i]+': '+(vals[i]?'YOQILGAN':'O‘CHIRILGAN');b.setAttribute('aria-pressed',String(vals[i]));b.style.borderColor=vals[i]?'#d1d89c':'#6c7860'})}for(let i=0;i<3;i++)bs.push(button(bank,'',()=>{vals[i]=!vals[i];paint()}));paint();button(bank,'TOKNI ULASH',()=>vals[0]&&!vals[1]&&vals[2]?success():feedback('Bu holatda xavfsiz ko‘prik ochilmaydi. Uch tarmoqni ham tekshiring.'))}
+if(type===7){const qs=[['Mara sut o‘rniga nima ichardi?',['Issiq sut','Suv','Qahva'],1],['Hamidning uyga qaytish kodi?',['Uzun–uzun–qisqa','Qisqa–qisqa–uzun','Qisqa–uzun–qisqa'],2],['Haqiqiy Mara sizdan nimani istaydi?',['Sening yashab qaytishingni','Abadiy yonida qolishingni','Boshqalarni unutishingni'],0]];function draw(){bank.replaceChildren();let q=document.createElement('label');q.textContent=(question+1)+'/3 · '+qs[question][0];bank.append(q);qs[question][1].forEach((s,i)=>button(bank,s,()=>{if(i!==qs[question][2]){feedback('Bu javob voqeaga mos emas. Daftardagi tafsilotlarni eslang.');return}question++;if(question===3)success();else{$('feedback').textContent='';draw()}}))}draw()}}
+function canHope(){return memories.size>=5&&flags.honest>=2&&flags.care}
+function finalChoice(){let need=[];if(memories.size<5)need.push('kamida 5 shaxsiy xotira ('+memories.size+'/5)');if(flags.honest<2)need.push('kamida 2 ochiq rost gap ('+flags.honest+'/2)');if(!flags.care)need.push('Bahromni mayoqdan oldin tanlash');let buttons=[['SIGNALNI UZISH / XAYRLASHISH',()=>end('release'),true],['OVOZNI UYGA OLIB KETISH',()=>end('answer')]];if(canHope())buttons.splice(1,0,['XOTIRANI AKSDAN AJRATISH',()=>end('hope'),true]);if(!memories.has(7))buttons.push(['Oxirgi shaxsiy xotirani qidirish',()=>{resume();subtitle('Misrang nuqtani tekshiring. So‘ng shu pultga qayting.',14)}]);buttons.push(['Daftarga yana qarash',()=>openJournal(finalChoice)]);show('SO‘NGGI TANLOV · VAQT CHEKLOVI YO‘Q','Uyga qaytish ham jasorat.','SIGNALNI UZISH — Marani qo‘yib yuborish va tiriklar tomon qaytish.\n\nOVOZNI OLIB KETISH — uzatgichga qirg‘oqdan joy berish.\n\n'+(canHope()?'UCHINCHI YO‘L OCHILDI — yig‘ilgan xotiralar, rostgo‘ylik va tirik insonga g‘amxo‘rlik aksdan shaxsiy ovozni ajratishga yetadi. Bu tiriltirish emas.':'UCHINCHI YO‘L YOPIQ — yetishmagan shartlar: '+need.join('; ')+'. Signalni uzish ham to‘liq, munosib yakun.'),buttons,'final')}
+function end(which){ended=which;playing=false;pressure=0;$('pressure').classList.add('hidden');updateHUD();let e=endings[which];readScene(e.tag,e.title,e.text,()=>endingMenu());view='ending'}
+function endingMenu(){let e=endings[ended];show(e.tag,e.title,'Yo‘l yakunlandi. O‘ynalgan vaqt: '+clock()+'. Shaxsiy xotiralar: '+memories.size+'/8.\n\nDavomiylik matnlarni o‘qish va izlanishga bog‘liq. Boshqa yakunlarni tanlovlar va xotiralarni o‘zgartirib ko‘rish mumkin.',['',].filter(Boolean).concat([['Daftarni o‘qish',()=>openJournal(endingMenu)],['Boshidan o‘ynash',confirmRestart,true]]),'ending')}
+function confirmRestart(){show('YANGI SAFAR','Boshidan boshlaysizmi?','Bu ochiq oynadagi taraqqiyot o‘rniga yangi safar boshlanadi. Avvalgi tanlovlar va daftar yozuvlari tozalanadi.',[['Qaytish',()=>ended?endingMenu():resume()],['Ha, yangi safar',start,true]],'confirm')}
+
+function showControlTutorial(page=0){
+  const mobile=matchMedia('(pointer:coarse)').matches;
+  const steps=mobile?[
+    ['01 / HARAKAT','Sohil bo‘ylab yurish','Ekranning chap pastidagi dumaloq joystickni kerakli tomonga suring. Uni qo‘yib yuborsangiz, qahramon to‘xtaydi.'],
+    ['02 / QARASH','Atrofni kuzatish','Ekranning bo‘sh markaziy qismida barmog‘ingizni chapga yoki o‘ngga surib atrofga qarang. Tepaga sursangiz yuqoriga, pastga sursangiz pastga qaraysiz. ↶ va ↷ tugmalari chap-o‘ngga qarashga yordam beradi.'],
+    ['03 / TEKSHIRISH','Buyum va belgilar','Yaqinlashganda TEKSHIRISH tugmasini bosing. Sariq belgi asosiy vazifani, misrang belgi ixtiyoriy xotirani bildiradi.'],
+    ['04 / ASBOBLAR','Chiroq, xarita va daftar','CHIROQ tugmasi fonarni yoqadi yoki o‘chiradi. Pastki markazdagi tugmalar orqali daftar, buyumlar va xaritani oching. Tuman yo‘lagida chiroqni o‘chiring va sekin yuring.']
+  ]:[
+    ['01 / HARAKAT','Sohil bo‘ylab yurish','W A S D tugmalari bilan yuring. Shift tugmasi tezroq yurishga yordam beradi.'],
+    ['02 / QARASH','Atrofni kuzatish','Sichqonchani sahna ustida chap-o‘ngga va tepaga-pastga surib atrofga qarang. Chap/o‘ng strelkalar bilan gorizontal qarash mumkin.'],
+    ['03 / TEKSHIRISH','Buyum va belgilar','E tugmasi bilan yaqin buyumlarni tekshiring. Sariq belgi asosiy vazifa, misrang belgi ixtiyoriy xotiradir.'],
+    ['04 / ASBOBLAR','Chiroq, xarita va daftar','F — chiroq, J — daftar, I — buyumlar, M — xarita. Escape — tanaffus. Tuman yo‘lagida chiroqni o‘chiring va sekin yuring.']
+  ];
+  const finish=()=>{
+    try{localStorage.setItem('tls_controls_tutorial_seen','1')}catch(_){}
+    resume();
+  };
+  if(page>=steps.length){
+    show('BOSHQARUV · TAYYOR','Signalni kuzating.','Boshqaruv bo‘yicha qisqa qo‘llanma tugadi. Uni istalgan vaqtda menyudagi YORDAM bo‘limidan qayta ko‘rishingiz mumkin.',[['O‘yinni boshlash',finish,true]],'tutorial');
+    return;
+  }
+  const [tag,title,body]=steps[page];
+  const buttons=[];
+  if(page>0)buttons.push(['Orqaga',()=>showControlTutorial(page-1)]);
+  buttons.push(['O‘tkazib yuborish',finish]);
+  buttons.push([page===steps.length-1?'Tugatish':'Keyingi',()=>showControlTutorial(page+1),true]);
+  show(tag,title,body,buttons,'tutorial');
+}
+
+function start(){menuOpen=false;started=true;ended='';act=0;step=0;px=0;pz=4;yaw=0;pitch=0;bob=0;elapsed=0;pressure=0;light=true;battery=100;records.length=0;memories.clear();flags.honest=0;flags.care=false;flags.warm=0;buildWorld();$('title').classList.add('hidden');$('hud').classList.remove('hidden');$('pause').classList.remove('hidden');$('touchMove').classList.remove('hidden');$('touchLook').classList.remove('hidden');$('map').classList.toggle('hidden',!mapOn);updateHUD();resume();subtitle(chapters[0].intro,16);let tutorialSeen=false;try{tutorialSeen=localStorage.getItem('tls_controls_tutorial_seen')==='1'}catch(_){}if(!tutorialSeen)showControlTutorial(0)}
+function openJournal(back=resume){show('DAFTAR · '+records.length+' YOZUV','Ismlar o‘chmasin.','Xotiralar: '+memories.size+'/8 · Ochiq aytilgan rost gaplar: '+flags.honest+' · Bahromni birinchi tanlash: '+(flags.care?'ha':'hali yo‘q')+'\n\nAsosiy yordam: joriy sariq nuqta — vazifa. Misrang nuqta — ixtiyoriy oilaviy xotira. Tuman zonalarida chiroqni o‘chirib, sekin yuring.',['',].filter(Boolean).concat([['Qaytish',back,true]]),'journal');let nav=document.createElement('div');nav.className='journalNav';let text=$('journalText');text.classList.remove('hidden');function list(category='Barchasi'){nav.replaceChildren();['Barchasi','Xotiralar','Dalillar','Qahramonlar','Yozuvlar','Xulosalar'].forEach(cat=>{let b=document.createElement('button');b.textContent=cat;if(cat===category)b.className='primary';b.onclick=()=>list(cat);nav.append(b)});let sel=document.createElement('select');sel.setAttribute('aria-label','Daftar yozuvini tanlash');sel.style.cssText='width:100%;padding:12px;background:#20372b;color:#e2e1cc;border:1px solid #6c7b60;font:inherit;font-size:12px';let rs=records.filter(r=>category==='Barchasi'||recordCategory(r)===category);if(!rs.length)text.textContent='Hozircha bu bo‘limda yozuv yo‘q. Yo‘ldagi radio va misrang belgilarni tekshiring.';else{rs.forEach((r,i)=>{let op=document.createElement('option');op.value=i;op.textContent=r.title;sel.append(op)});sel.onchange=()=>{text.textContent=rs[Number(sel.value)].text;text.scrollTop=0};text.textContent=rs[0].text;nav.append(sel)}}$('extras').append(nav);list('Barchasi')}
+function recordCategory(r){let t=(r.title+' '+r.text.slice(0,220)).toLowerCase();if(r.id.startsWith('m'))return'Xotiralar';if(/kasseta|radio|qabul qilgich|ovoz|qo‘ng‘iroq/.test(t))return'Yozuvlar';if(/xat|bayonnoma|ro‘yxat|qayd|chizma|parol|yo‘riqnoma|panel|daftar/.test(t))return'Dalillar';if(/bahrom|hamid|mara|saida|islom|onangiz|otangiz/.test(t))return'Qahramonlar';return'Xulosalar'}function openInventory(back=resume){show('DALILLAR · '+records.length+' TOPILMA','Cho‘ntagingizda qolganlar.','Topilgan yozuvlar va xotiralar shu yerda jamlanadi. Buyumni tanlab, uning mazmunini ko‘ring.',[['Daftarga o‘tish',()=>openJournal(back)],['Qaytish',back,true]],'inventory');let filters=document.createElement('div');filters.className='recordFilters';let grid=document.createElement('div');grid.className='recordGrid';let detail=document.createElement('div');detail.className='recordDetail hidden';$('extras').append(filters,grid,detail);function paint(category='Barchasi'){filters.replaceChildren();grid.replaceChildren();['Barchasi','Xotiralar','Dalillar','Qahramonlar','Yozuvlar','Xulosalar'].forEach(cat=>{let b=document.createElement('button');b.textContent=cat;if(cat===category)b.className='primary';b.onclick=()=>paint(cat);filters.append(b)});let items=records.filter(r=>category==='Barchasi'||recordCategory(r)===category);if(!items.length){let empty=document.createElement('p');empty.textContent='Bu turdagi topilma hali yo‘q. Yo‘ldagi radio va misrang belgilarni tekshiring.';grid.append(empty);detail.classList.add('hidden');return}items.forEach(r=>{let b=document.createElement('button');b.className='recordCard';let c=recordCategory(r),glyph=document.createElement('span');glyph.className='glyph';glyph.textContent=c==='Xotiralar'?'◇':c==='Yozuvlar'?'♫':c==='Qahramonlar'?'◉':c==='Dalillar'?'▤':'∴';let title=document.createElement('strong');title.textContent=r.title;let tag=document.createElement('small');tag.textContent=c.toUpperCase();b.append(glyph,title,tag);b.onclick=()=>{detail.textContent=r.text;detail.classList.remove('hidden')};grid.append(b)})}paint()}
+function help(){showControlTutorial(0);return;show('BOSHQARUV · SHOSHILISH SHART EMAS','Yo‘ldagi kichik narsalar.','WASD — yurish. Chap/o‘ng strelka yoki sahnani surish — qarash. E — yaqindagi buyumni tekshirish. F — chiroq. J — daftar. I — topilmalar. M — xarita. Shift — tezroq yurish. Escape — ochiq dunyoda tanaffus.\n\nTelefonda pastdagi tugmalar bilan yuring, sahna ustida surib qarang. Dialoglar betma-bet ochiladi; matn o‘qiyotganda xavf to‘xtaydi. Boshqotirmada Ishora tugmasi yordam beradi.\n\n8 bob va 32 asosiy sahna bor. Har hududda bitta misrang shaxsiy xotira yashiringan. 5 ta xotira, 2 ta rost tanlov va Bahromni avval tanlash uchinchi yakunni ochadi.\n\n3- va 6-bobdagi tuman yo‘lagida chiroqni o‘chiring, yugurmang. Ushlansangiz, xavfsiz nuqtaga qaytasiz; yozuvlaringiz yo‘qolmaydi. Bu zo‘ravonlikdan ko‘ra yo‘qotish va oilaviy sirlar haqidagi o‘yin.\n\nTaxminiy 35–50 daqiqa — 40 daqiqalik hikoya maqsadi. Majburiy kutish yo‘q. Oynani yopsangiz yoki qayta yuklasangiz, taraqqiyot tiklanmaydi.',[['Tushundim',resume,true]],'help')}
+function pause(){if(!started||ended)return;if(view==='pause'){resume();return}if(!playing)return;show('TANAFFUS · '+clock(),'Dengiz kutib turadi.','Bu vaqtda o‘yin soati va xavf to‘xtaydi. Hikoya o‘qilayotganida ham xavf yurmaydi. Oynani yopmang: taraqqiyot faqat shu safar davomida turadi.',[['Davom etish',resume,true],['Daftar',()=>openJournal(()=>{resume();pause()})],['Boshqaruv',help],['Bosh menyu',mainMenu],['Harakat: '+(quiet?'sokin':'odatdagi'),()=>{quiet=!quiet;view='world';playing=true;pause()}],['Xavf: '+(lowThreat?'yengil':'odatdagi'),()=>{lowThreat=!lowThreat;view='world';playing=true;pause()}]],'pause')}
+function toggleLight(){if(!started||ended)return;if(!light&&battery<2){subtitle('Chiroq quvvat olayapti. Biroz kuting yoki yo‘lni xaritadan kuzating.',7);return}light=!light;updateHUD();tone(light?360:220,.08,.012)}function toggleMap(){mapOn=!mapOn;$('map').classList.toggle('hidden',!mapOn)}
+
+function requestLandscapeMode(){
+  try{
+    if(screen.orientation && typeof screen.orientation.lock==='function'){
+      const lockResult=screen.orientation.lock('landscape');
+      if(lockResult && typeof lockResult.catch==='function') lockResult.catch(()=>{});
+    }
+  }catch(_){}
+}
+
+$('start').onclick=()=>{requestLandscapeMode();started&&!ended?confirmRestart():start()};$('continueGame').onclick=()=>{if(!started||ended)return;requestLandscapeMode();menuOpen=false;resume()};$('settings').onclick=settingsMenu;$('aboutStory').onclick=aboutStory;$('how').onclick=help;$('pause').onclick=pause;$('prompt').onclick=interact;$('interactTouch').onclick=interact;$('lightBtn').onclick=toggleLight;$('mapBtn').onclick=toggleMap;$('journalBtn').onclick=()=>{if(playing)openJournal()};$('inventoryBtn').onclick=()=>{if(playing)openInventory()};$('lightTouch').onclick=toggleLight;
+function toggleAudio(){if(!audio){try{audio=new(window.AudioContext||window.webkitAudioContext)();master=audio.createGain();master.gain.value=0;master.connect(audio.destination);let o=audio.createOscillator(),filter=audio.createBiquadFilter();filter.type='lowpass';filter.frequency.value=150;o.type='sawtooth';o.frequency.value=46;o.connect(filter);filter.connect(master);o.start()}catch(e){$('sound').textContent='OVOZ ISHLAMADI';return}}audio.resume().then(()=>{soundOn=!soundOn;master.gain.setTargetAtTime(soundOn?.045:0,audio.currentTime,.4);$('sound').textContent=soundOn?'OVOZ: HA':'OVOZ: YO‘Q';if($('settingSound'))$('settingSound').textContent='Ovoz: '+(soundOn?'yoqilgan':'o‘chirilgan')}).catch(()=>{$('sound').textContent='OVOZ BLOKLANGAN'})}
+function tone(freq,dur,vol=.035){if(!audio||!soundOn)return;let o=audio.createOscillator(),g=audio.createGain();o.frequency.value=freq;g.gain.setValueAtTime(vol,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+dur);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+dur)}document.querySelectorAll('.main-menu button').forEach((b,i)=>b.addEventListener('click',()=>tone(210+i*34,.07,.01)));$('sound').onclick=toggleAudio;
+addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName))return;let k=e.key.toLowerCase();if(k==='escape'){pause();return}if(!playing)return;if(['arrowleft','arrowright','arrowup','arrowdown',' '].includes(k))e.preventDefault();keys[k]=true;if(e.repeat)return;if(k==='e')interact();if(k==='f')toggleLight();if(k==='j')openJournal();if(k==='i')openInventory();if(k==='m')toggleMap()});addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);addEventListener('blur',()=>{clearKeys();if(playing)pause()});document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)pause()});
+let dragging=false,dragX=0,dragY=0;canvas.style.touchAction='none';canvas.addEventListener('pointerdown',e=>{if(playing){dragging=true;dragX=e.clientX;dragY=e.clientY;canvas.setPointerCapture(e.pointerId)}});canvas.addEventListener('pointermove',e=>{if(dragging&&playing){yaw+=(e.clientX-dragX)*.005*touchSensitivity;pitch=Math.max(-.52,Math.min(.52,pitch-(e.clientY-dragY)*.0045*touchSensitivity));dragX=e.clientX;dragY=e.clientY}});canvas.addEventListener('pointerup',()=>dragging=false);canvas.addEventListener('pointercancel',()=>dragging=false);const stick=$('joystick'),knob=$('stickKnob');let stickPointer=null;function clearStick(){stickPointer=null;['w','a','s','d'].forEach(k=>keys[k]=false);knob.style.transform='translate(0,0)'}function moveStick(e){if(stickPointer!==e.pointerId)return;let r=stick.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2),max=r.width*.34,dist=Math.hypot(dx,dy),scale=dist>max?max/dist:1;dx*=scale;dy*=scale;knob.style.transform='translate('+dx+'px,'+dy+'px)';keys.a=dx<-13;keys.d=dx>13;keys.w=dy<-13;keys.s=dy>13}stick.addEventListener('pointerdown',e=>{e.preventDefault();if(!playing)return;stickPointer=e.pointerId;stick.setPointerCapture(e.pointerId);moveStick(e)});stick.addEventListener('pointermove',moveStick);stick.addEventListener('pointerup',clearStick);stick.addEventListener('pointercancel',clearStick);stick.addEventListener('lostpointercapture',clearStick);document.querySelectorAll('[data-key]').forEach(b=>{b.onpointerdown=e=>{e.preventDefault();if(playing)keys[b.dataset.key]=true;b.setPointerCapture(e.pointerId)};b.onpointerup=b.onpointercancel=()=>keys[b.dataset.key]=false});
+function canMove(x,z){return Math.abs(x)<27&&z>-4&&z<94&&!colliders.some(c=>Math.abs(x-c.x)<c.w&&Math.abs(z-c.z)<c.d)}
+function drawMap(){const m=$('map').getContext('2d');m.clearRect(0,0,145,215);m.font='8px monospace';m.fillStyle='#b7c4a7';m.fillText('HUDUD '+(act+1)+' / 08',9,14);m.strokeStyle='#596a50';m.setLineDash([2,3]);m.beginPath();[[0,4],...routes.map(s=>[s.x,s.z])].forEach(([x,z],i)=>i?m.lineTo(72+x*2,201-z*2):m.moveTo(72+x*2,201-z*2));m.stroke();m.setLineDash([]);objects.forEach(s=>{m.fillStyle=s.i===4?(memories.has(act)?'#6e8664':'#e2a37c'):s.i===step?'#ece5a3':s.i<step?'#79a26b':'#776b55';m.fillRect(69+s.x*2,198-s.z*2,6,6)});let x=72+px*2,y=201-pz*2;m.fillStyle='#e4c4a1';m.beginPath();m.moveTo(x+Math.sin(yaw)*7,y-Math.cos(yaw)*7);m.lineTo(x+Math.sin(yaw+2.4)*4,y-Math.cos(yaw+2.4)*4);m.lineTo(x+Math.sin(yaw-2.4)*4,y-Math.cos(yaw-2.4)*4);m.fill();m.fillStyle='#d6dda9';m.fillText('■ VAZIFA',8,31);m.fillStyle='#e2a37c';m.fillText('■ XOTIRA',8,43)}
+function frame(t){let raw=(t-last)/1000||.016,dt=Math.min(.05,raw);last=t;time+=dt;if(started&&!ended&&!document.hidden&&!['pause','help','confirm','title','settings','about'].includes(view))elapsed+=Math.min(2,raw);if(playing){if(light){battery=Math.max(0,battery-dt*.02);if(battery===0){light=false;subtitle('Chiroq quvvati tugadi. O‘chirilgan paytda u qayta quvvatlanadi.',10)}}else battery=Math.min(100,battery+dt*.35);yaw+=((keys.arrowright?1:0)-(keys.arrowleft?1:0))*dt*1.8;let f=(keys.w||keys.arrowup?1:0)-(keys.s||keys.arrowdown?1:0),r=(keys.d?1:0)-(keys.a?1:0),norm=Math.hypot(f,r)||1,speed=keys.shift?4.7:3.1,dx=(Math.sin(yaw)*f+Math.cos(yaw)*r)*dt*speed/norm,dz=(Math.cos(yaw)*f-Math.sin(yaw)*r)*dt*speed/norm;if(canMove(px+dx,pz))px+=dx;if(canMove(px,pz+dz))pz+=dz;if(f||r){bob+=dt*8;if(time-footAt>.62){footAt=time;tone(65,.055,.006)}}near=objects.find(s=>Math.hypot(s.x-px,s.z-pz)<2.65)||null;$('prompt').classList.toggle('hidden',!near);if(near)$('prompt').textContent='[E] '+(step>=4&&near.i===3?(act===7?'So‘nggi tanlovga qaytish':'Keyingi hududga o‘tish'):(near.i<step?'Qayta o‘qish: ':'')+near.name);let target=objects[Math.min(step,3)],d=Math.hypot(target.x-px,target.z-pz),a=Math.atan2(target.x-px,target.z-pz)-yaw;a=Math.atan2(Math.sin(a),Math.cos(a));$('distance').textContent=Math.round(d)+' m · '+(Math.abs(a)<.4?'OLDINDA':a>0?'O‘NGGA →':'← CHAPGA');
+let danger=(act===2||act===5)&&pz>43&&pz<57;if(danger){pressure+=dt*(light?(lowThreat?4:13):keys.shift?9:-18);if(pressure<0)pressure=0;$('pressure').classList.remove('hidden');$('pressure').textContent=pressure>55?'SOYA YAQIN. CHIROQNI O‘CHIRING. YUGURMANG.':'TUMAN YO‘LAGI · F: CHIROQNI O‘CHIRING, SEKIN YURING.';if(pressure>=100){px=0;pz=40;pressure=0;light=false;clearKeys();tone(72,.6);subtitle('Bahrom: «Orqaga. Yaxshi. Hech nima yo‘qolmadi. Endi chiroqsiz, sekin o‘t.»',14)}}else{pressure=Math.max(0,pressure-dt*20);$('pressure').classList.add('hidden')}updateHUD();if(mapOn)drawMap()}else if(!started){px=4;pz=-1;yaw=-.2+Math.sin(time*.07)*.06}if(time>subUntil)$('subtitle').classList.add('hidden');render();requestAnimationFrame(frame)}
+buildWorld();requestAnimationFrame(frame);
+})();
+</script>
+<div id="orientationGuard" role="status" aria-live="polite">
+  <div class="rotateIcon" aria-hidden="true">⟳</div>
+  <strong>LANDSCAPE MODE</strong>
+  <p>THE LAST SIGNAL o‘yinini davom ettirish uchun telefoningizni gorizontal holatga aylantiring.</p>
+  <p style="opacity:.65">PLEASE ROTATE YOUR DEVICE</p>
+</div>
+
+
+<style>
+/* Main-menu controls tuned to sit naturally over the title artwork */
+#title .main-menu{
+  left:clamp(22px,6vw,92px)!important;
+  top:50%!important;
+  bottom:auto!important;
+  transform:translateY(-50%)!important;
+  width:clamp(300px,29vw,410px)!important;
+  max-height:82vh!important;
+  overflow-y:auto!important;
+  padding:13px 0!important;
+  background:linear-gradient(115deg,rgba(5,9,11,.96),rgba(10,15,17,.91) 78%,rgba(10,15,17,.82))!important;
+  border:1px solid rgba(190,166,125,.42)!important;
+  border-left:3px solid #b88b65!important;
+  box-shadow:0 16px 48px rgba(0,0,0,.58),inset 0 0 24px rgba(217,183,124,.035)!important;
+  backdrop-filter:blur(8px);
+}
+#title .main-menu:before{
+  padding:7px 19px 10px!important;
+  font-size:8px!important;
+  letter-spacing:2px!important;
+  color:#c5a879!important;
+}
+#title .menu-caption{
+  padding:5px 19px 11px!important;
+  font-size:8px!important;
+  letter-spacing:2px!important;
+}
+#title .main-menu button{
+  min-height:57px!important;
+  padding:10px 19px!important;
+  gap:14px!important;
+}
+#title .menu-label{font-size:20px!important;line-height:1.15!important}
+#title .menu-label small{font-size:8px!important;line-height:1.6!important}
+#title .menu-note{font-size:8px!important;line-height:1.7!important;padding:10px 19px 3px!important}
+#title .edition{display:none!important}
+body:has(#title:not(.hidden)) .top{
+  z-index:5!important;left:auto!important;right:22px!important;top:18px!important;
+  width:auto!important;pointer-events:none!important;
+}
+body:has(#title:not(.hidden)) .top .brand{display:none!important}
+body:has(#title:not(.hidden)) .top .tools{
+  display:flex!important;align-items:center!important;gap:8px!important;
+  padding:7px 9px!important;background:rgba(5,9,11,.76)!important;
+  border:1px solid rgba(190,166,125,.28)!important;
+  box-shadow:0 5px 20px rgba(0,0,0,.3)!important;
+  backdrop-filter:blur(6px);pointer-events:auto!important;
+}
+body:has(#title:not(.hidden)) .top .live{
+  padding:0 8px!important;font-size:8px!important;letter-spacing:2px!important;
+}
+body:has(#title:not(.hidden)) .top button{
+  min-height:34px!important;padding:6px 11px!important;
+  font-size:8px!important;letter-spacing:1px!important;
+  background:rgba(17,22,23,.92)!important;border:1px solid rgba(190,166,125,.35)!important;
+}
+@media(max-width:800px) and (orientation:landscape){
+  #title{background-position:57% center!important}
+  #title .main-menu{
+    left:clamp(12px,3vw,28px)!important;width:clamp(260px,32vw,340px)!important;
+    max-height:88vh!important;padding:7px 0!important;
+  }
+  #title .main-menu button{min-height:44px!important;padding:7px 13px!important;gap:10px!important}
+  #title .menu-label{font-size:16px!important}
+  #title .menu-label small{font-size:7px!important}
+  #title .menu-caption{padding:3px 13px 7px!important;font-size:7px!important}
+  #title .main-menu:before{padding:4px 13px 7px!important;font-size:7px!important}
+  #title .menu-note{font-size:7px!important;padding:6px 13px 2px!important}
+  body:has(#title:not(.hidden)) .top{right:12px!important;top:10px!important}
+  body:has(#title:not(.hidden)) .top .tools{gap:4px!important;padding:5px!important}
+  body:has(#title:not(.hidden)) .top button{min-height:29px!important;padding:4px 8px!important;font-size:7px!important}
+}
+@media(max-height:500px) and (orientation:landscape){
+  #title .main-menu{max-height:91vh!important;padding:4px 0!important}
+  #title .main-menu button{min-height:37px!important;padding:5px 12px!important}
+  #title .menu-note{display:none!important}
+  #title .menu-caption{padding:2px 12px 5px!important}
+  #title .main-menu:before{padding:3px 12px 5px!important}
+}
+@media(orientation:portrait) and (pointer:coarse){
+  #title .main-menu{top:50%!important;left:5vw!important;width:90vw!important;max-height:76vh!important}
+  #title{background-position:60% center!important}
+}
+</style>
+
+</body></html>
